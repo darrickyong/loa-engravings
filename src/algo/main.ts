@@ -9,6 +9,7 @@ import {
   DEMO_RING1,
   DEMO_RING2,
   DEMO_STONE,
+  WARDANCER,
 } from './testAccessories';
 import { isEqual, orderBy } from 'lodash';
 
@@ -91,8 +92,6 @@ interface EngravingReq {
   stone: Stone;
   existingAcc: Accessory[];
 }
-
-interface EngravingRes {}
 
 const createListofAccessories = (requiredEngravings: (Combat | Class)[], useAncients = false) => {
   const listOfAccessories: Accessory[] = [];
@@ -230,7 +229,7 @@ const calculateAccessories = ({ total, nodes, remainingAcc }: CalculateAccessori
     console.log(acc);
   });
 
-  return res.length;
+  return res;
 };
 
 export const engravingAlgo = ({ books, existingAcc, requiredNodes, stone }: EngravingReq) => {
@@ -238,7 +237,7 @@ export const engravingAlgo = ({ books, existingAcc, requiredNodes, stone }: Engr
   const res = { ...requiredNodes };
 
   // Consume BOOKS
-  books.forEach((book) => findEngravingAndDecrement(res, book), false);
+  books.forEach((book) => findEngravingAndDecrement(res, book, false));
 
   // Consume STONE
   findEngravingAndDecrement(res, stone.eng1, false);
@@ -250,40 +249,31 @@ export const engravingAlgo = ({ books, existingAcc, requiredNodes, stone }: Engr
     findEngravingAndDecrement(res, acc.eng2, false);
   });
 
-  // Determine how many accessories we will
-  // const remainingAcc = 5 - existingAcc.length;
+  // Determine how many accessories we will need
+  const remainingAcc = 5 - existingAcc.length;
 
-  // Determine if ancient accessories are needed
-  // const needAncients = res.total / 8 > remainingAcc;
+  const { total, nodes } = res;
+  const accessories = calculateAccessories({ total, nodes, remainingAcc })
 
-  // Order nodes by value, highest first
-  // res.nodes = orderBy(res.nodes, ['value'], ['desc']);
-
-  return res;
+  return accessories;
 };
 
 const testing = engravingAlgo({
-  books: DEMO_BOOKS as [EngravingBook, EngravingBook],
-  requiredNodes: DEMO_REQUIRED_NODES,
-  stone: DEMO_STONE,
-  existingAcc: [
-    // DEMO_NECKLACE,
-    // DEMO_EARRING1,
-    // DEMO_EARRING2,
-    DEMO_RING1,
-    DEMO_RING2,
-  ],
+  books: WARDANCER.books as [EngravingBook, EngravingBook],
+  requiredNodes: WARDANCER.nodes,
+  stone: WARDANCER.stone,
+  existingAcc: WARDANCER.acc
 });
 
 console.log(testing);
 
-console.log(
-  calculateAccessories({
-    total: testing.total,
-    remainingAcc: 3,
-    nodes: testing.nodes,
-  })
-);
+// console.log(
+//   calculateAccessories({
+//     total: testing.total,
+//     remainingAcc: 3,
+//     nodes: testing.nodes,
+//   })
+// );
 
 // const lodashTest1 = [
 //   [
