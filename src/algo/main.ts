@@ -1,17 +1,16 @@
-import { groupEnd } from 'console';
 import { Class, Combat } from './engravings';
 import {
-  DEMO_BOOKS,
-  DEMO_EARRING1,
-  DEMO_EARRING2,
-  DEMO_NECKLACE,
-  DEMO_REQUIRED_NODES,
-  DEMO_RING1,
-  DEMO_RING2,
-  DEMO_STONE,
+  // DEMO_BOOKS,
+  // DEMO_EARRING1,
+  // DEMO_EARRING2,
+  // DEMO_NECKLACE,
+  // DEMO_REQUIRED_NODES,
+  // DEMO_RING1,
+  // DEMO_RING2,
+  // DEMO_STONE,
   WARDANCER,
 } from './testAccessories';
-import { isEqual, orderBy } from 'lodash';
+import { isEqual } from 'lodash';
 
 // ACCESSORIES
 enum AccessoryEnum {
@@ -73,14 +72,14 @@ interface RequiredEngravings {
 }
 
 // REQUIRED NODES
-enum RequiredNodesEnum {
-  FourThree = 60,
-  FourThreeOne = 65,
-  FourThreeTwo = 70,
-  FiveThree = 75,
-  FiveThreeOne = 80,
-  FiveThreeTwo = 85,
-}
+// enum RequiredNodesEnum {
+//   FourThree = 60,
+//   FourThreeOne = 65,
+//   FourThreeTwo = 70,
+//   FiveThree = 75,
+//   FiveThreeOne = 80,
+//   FiveThreeTwo = 85,
+// }
 interface RequiredNodes {
   total: number;
   nodes: RequiredEngravings[];

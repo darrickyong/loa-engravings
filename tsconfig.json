@@ -1,0 +1,63 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "esnext" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */,
+    "module": "commonjs" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */,
+    "lib": [
+      "es2016",
+      "es6",
+      "DOM",
+      "DOM.Iterable",
+      "ES2020.Promise"
+    ] /* Specify library files to be included in the compilation. */,
+    // "allowJs": true /* Allow javascript files to be compiled. */,
+    // "checkJs": true,   /* Report errors in .js files. */
+    "jsx": "react" /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */,
+    "isolatedModules": true /* Transpile each file as a separate module (similar to 'ts.transpileModule'). */,
+    /* Strict Type-Checking Options */
+    "strict": true /* Enable all strict type-checking options. */,
+    "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
+    /* Additional Checks */
+    "noUnusedLocals": true /* Report errors on unused locals. */,
+    "noUnusedParameters": true /* Report errors on unused parameters. */,
+    "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
+    "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
+    "noPropertyAccessFromIndexSignature": true /* Reports errors when accessing fields via dot syntax that are not defined */,
+    /* Module Resolution Options */
+    "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
+    "baseUrl": "." /* Base directory to resolve non-absolute module names. */,
+    "paths": {
+      "baseUrl": ["./"],
+      "actions": ["src/redux/actions"],
+      "actions*": ["src/redux/actions*"],
+      "common": ["src/features/common/components/_Common"],
+      "common*": ["src/features/common/components/_Common*"],
+      // "components*": [],
+      "data-transforms*": ["src/data-transforms*"],
+      "default-props*": ["src/default-props*"],
+      "features*": ["src/features*"],
+      "hoc*": ["src/hoc*"],
+      "hooks*": ["src/hooks*"],
+      "icons": ["src/icons"],
+      "icons*": ["src/icons*"],
+      "images": ["public/images"],
+      "images*": ["public/images/*"],
+      "proptypes*": ["src/proptypes*"],
+      "routes*": ["src/routes*"],
+      "scripts*": ["src/scripts*"],
+      "permissions": ["src/permissions"],
+      "permissions*": ["src/permissions*"],
+      "test-utils*": ["src/test-utils*"],
+      "theme*": ["src/theme*"],
+      "types*": ["src/types*"]
+    },
+    "skipLibCheck": true /* Skip type checking of declaration files. */,
+    "allowSyntheticDefaultImports": true /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */,
+    "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
+    "types": ["jest", "@testing-library/jest-dom"],
+    "resolveJsonModule": true /* Enable importing .json files*/
+    // "useUnknownInCatchVariables": true
+  },
+  "exclude": ["node_modules", "dist", "**/*.spec.ts"],
+  "include": [".eslintrc.js", "./src/**/*", "./custom.d.ts"]
+}
