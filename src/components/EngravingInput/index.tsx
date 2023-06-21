@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import EInput from '../inputs/EInput';
 
+// Style
+import * as S from './style';
+
 export interface engravingOnChangeProps {
   type: 'standard' | 'additional';
   index: number;
@@ -38,8 +41,14 @@ const EngravingInput = () => {
     }
   };
 
+  const removeAdditionalEngravings = (idx: number) => {
+    const newEngravings = [...additionalEngravings];
+    newEngravings.splice(idx, 1);
+    setAdditionalEngravings(newEngravings);
+  };
+
   return (
-    <div>
+    <S.EngravingInput>
       <div>Select the engravings that you want</div>
       {standardEngravings.map((engraving, idx) => {
         const { name, value } = engraving;
@@ -48,7 +57,6 @@ const EngravingInput = () => {
             key={idx}
             name={name}
             onChange={(name, value) => engravingOnChange({ name: name, value: value, type: 'standard', index: idx })}
-            removable={false}
             setter={setStandardEngravings}
             value={value}
           />
@@ -60,15 +68,15 @@ const EngravingInput = () => {
           <EInput
             key={idx}
             name={name}
-            onChange={(name, value) => engravingOnChange({ name: name, value: value, type: 'standard', index: idx })}
-            removable
+            onChange={(name, value) => engravingOnChange({ name: name, value: value, type: 'additional', index: idx })}
+            removable={() => removeAdditionalEngravings(idx)}
             setter={setAdditionalEngravings}
             value={value}
           />
         );
       })}
       {additionalEngravings.length < 2 ? <div onClick={addAdditionalEngravings}>+</div> : null}
-    </div>
+    </S.EngravingInput>
   );
 };
 

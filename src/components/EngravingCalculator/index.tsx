@@ -8,6 +8,9 @@ import Results from '../Results';
 import StoneInput from '../StoneInput';
 import React, { useState } from 'react';
 
+// Style
+import * as S from './style';
+
 const EngravingCalculator = () => {
   const [step, setStep] = useState(0);
   // const [step] = useState(0);
@@ -30,11 +33,11 @@ const EngravingCalculator = () => {
     }
   };
   return (
-    <div>
+    <S.EngravingCalculator>
       <Header />
       {renderBody()}
       <Footer step={step} setStep={setStep} />
-    </div>
+    </S.EngravingCalculator>
   );
 };
 
