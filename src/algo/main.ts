@@ -54,7 +54,8 @@ enum BookEnum {
   Purple = 9,
   Gold = 12,
 }
-interface EngravingBook {
+
+export interface EngravingBook {
   name: Combat | Class;
   value: BookEnum;
 }
