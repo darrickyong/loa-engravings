@@ -29,11 +29,13 @@ const EInput = ({ name, value, removable, onChange }: Props) => {
   const onNodeChange = (idx: number) => {
     if (name) {
       onChange(name, idx + 1);
+    } else {
+      alert('Select an engraving first!');
     }
   };
 
   return (
-    <S.EInput>
+    <S.EInput value={value}>
       <div className="engrImg">
         <img src={`/engravings/${name}.webp`} alt=""></img>
       </div>
@@ -48,7 +50,7 @@ const EInput = ({ name, value, removable, onChange }: Props) => {
         </div>
         <div className="levels">
           <div className="level">
-            <div className="levelTitle">Level 1</div>
+            <div className="levelTitle1">Level 1</div>
             <div className="levelNode">
               {[...Array(5)].map((_v, idx) => {
                 // idx 0 - 4
@@ -65,7 +67,7 @@ const EInput = ({ name, value, removable, onChange }: Props) => {
             </div>
           </div>
           <div className="level">
-            <div className="levelTitle">Level 2</div>
+            <div className="levelTitle2">Level 2</div>
             <div className="levelNode">
               {[...Array(5)].map((_v, idx) => {
                 // idx 0 - 4
@@ -82,7 +84,7 @@ const EInput = ({ name, value, removable, onChange }: Props) => {
             </div>
           </div>
           <div className="level">
-            <div className="levelTitle">Level 3</div>
+            <div className="levelTitle3">Level 3</div>
             <div className="levelNode">
               {[...Array(5)].map((_v, idx) => {
                 // idx 0 - 4
