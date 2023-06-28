@@ -95,7 +95,7 @@ export enum Class {
 
 export const classEngravingKeys = Object.keys(Class);
 export const combatEngravingKeys = Object.keys(Combat);
-export const allEngravingKeys = classEngravingKeys.concat(combatEngravingKeys);
+export const allEngravingKeys = classEngravingKeys.concat(combatEngravingKeys).sort();
 
 export const EngravingValues = {
   Adrenaline: {

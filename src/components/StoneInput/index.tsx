@@ -30,7 +30,7 @@ const StoneInput = ({ stoneEngravings, setStoneEngravings }: Props) => {
 
   return (
     <S.StoneInput>
-      <div className="title">Select the stone that you have faceted...</div>
+      <div className="title">Select the stone that you have equipped...</div>
       <div className="stoneBG">
         <div className="top"></div>
         <div className="bot">

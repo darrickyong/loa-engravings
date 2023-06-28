@@ -31,10 +31,36 @@ const EngravingCalculator = () => {
   ]);
 
   // Book Input
-    const [bookEngravings, setBookEngravings] = useState<{ name: null | string; value: number }[]>([
-      { name: null, value: 0 },
-      { name: null, value: 0 },
-    ]);
+  const [bookEngravings, setBookEngravings] = useState<{ name: null | string; value: number }[]>([
+    { name: null, value: 0 },
+    { name: null, value: 0 },
+  ]);
+
+  // Accessory Input
+  const [accEngravings, setAccEngravings] = useState<
+    { eng1: { name: null | string; value: number }; eng2: { name: null | string; value: number } }[]
+  >([
+    {
+      eng1: { name: null, value: 0 },
+      eng2: { name: null, value: 0 },
+    },
+    {
+      eng1: { name: null, value: 0 },
+      eng2: { name: null, value: 0 },
+    },
+    {
+      eng1: { name: null, value: 0 },
+      eng2: { name: null, value: 0 },
+    },
+    {
+      eng1: { name: null, value: 0 },
+      eng2: { name: null, value: 0 },
+    },
+    {
+      eng1: { name: null, value: 0 },
+      eng2: { name: null, value: 0 },
+    },
+  ]);
 
   const renderBody = () => {
     switch (step) {
@@ -45,9 +71,9 @@ const EngravingCalculator = () => {
       case 2:
         return <StoneInput stoneEngravings={stoneEngravings} setStoneEngravings={setStoneEngravings} />;
       case 3:
-        return <BookInput bookEngravings={bookEngravings} setBookEngravings={setBookEngravings}/>;
+        return <BookInput bookEngravings={bookEngravings} setBookEngravings={setBookEngravings} />;
       case 4:
-        return <AccessoryInput />;
+        return <AccessoryInput accEngravings={accEngravings} setAccEngravings={setAccEngravings} />;
       case 5:
         return <Results />;
       default:

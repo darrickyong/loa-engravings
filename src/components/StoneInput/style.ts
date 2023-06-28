@@ -5,6 +5,7 @@ export const StoneInput = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100%;
+  min-width: 775px;
   width: 100%;
 
   .title {

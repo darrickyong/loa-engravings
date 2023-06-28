@@ -33,8 +33,8 @@ export const EInput = styled.div<Props>`
     justify-content: center;
 
     img {
-      width: 96px;
-      height: 96px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
     }
   }
@@ -50,6 +50,8 @@ export const EInput = styled.div<Props>`
     }
 
     div > select {
+      line-height: 20px;
+      font-size: 16px;
       padding: 10px;
       color: #dddddd;
       background: ${({ value }) =>
