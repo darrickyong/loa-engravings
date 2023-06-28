@@ -93,7 +93,9 @@ export enum Class {
   'Ultimate Skill: Taijutsu' = 'Ultimate Skill: Taijutsu',
 }
 
-export const engravingKeys = Object.keys(Combat).concat(Object.keys(Class));
+export const classEngravingKeys = Object.keys(Class);
+export const combatEngravingKeys = Object.keys(Combat);
+export const allEngravingKeys = classEngravingKeys.concat(combatEngravingKeys);
 
 export const EngravingValues = {
   Adrenaline: {

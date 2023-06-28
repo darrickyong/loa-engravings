@@ -1,25 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import EInput from '../inputs/EInput';
 
 // Style
 import * as S from './style';
+import { engravingOnChangeProps } from 'types/types';
 
-export interface engravingOnChangeProps {
-  index: number;
-  name: string;
-  value: number;
+interface Props {
+  standardEngravings: {
+    name: null | string;
+    value: number;
+  }[];
+  setStandardEngravings: React.Dispatch<
+    React.SetStateAction<
+      {
+        name: null | string;
+        value: number;
+      }[]
+    >
+  >;
 }
 
-const EngravingInput = () => {
-  const [standardEngravings, setStandardEngravings] = useState<{ name: null | string; value: number }[]>([
-    { name: null, value: 0 },
-    { name: null, value: 0 },
-    { name: null, value: 0 },
-    { name: null, value: 0 },
-    { name: null, value: 0 },
-    { name: null, value: 0 },
-  ]);
-
+const EngravingInput = ({ standardEngravings, setStandardEngravings }: Props) => {
   const engravingOnChange = ({ index, name, value }: engravingOnChangeProps) => {
     const newEngravings = [...standardEngravings];
     newEngravings[index].name = name;
@@ -30,14 +31,13 @@ const EngravingInput = () => {
   return (
     <S.EngravingInput>
       <div className="title">Select the engravings that you want...</div>
-      {standardEngravings.map((engraving, idx) => {
+      {standardEngravings.map((engraving, index) => {
         const { name, value } = engraving;
         return (
           <EInput
-            key={idx}
+            key={index}
             name={name}
-            onChange={(name, value) => engravingOnChange({ name: name, value: value, index: idx })}
-            setter={setStandardEngravings}
+            onChange={(name, value) => engravingOnChange({ name, value, index })}
             value={value}
           />
         );

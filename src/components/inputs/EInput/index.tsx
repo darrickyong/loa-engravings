@@ -1,5 +1,5 @@
 import React from 'react';
-import { engravingKeys } from 'src/algo/engravings';
+import { allEngravingKeys } from 'src/algo/engravings';
 
 // Style
 import * as S from './style';
@@ -7,20 +7,11 @@ import * as S from './style';
 interface Props {
   name: null | string;
   onChange: (name: string, value: number) => void;
-  removable?: () => void;
-  setter: React.Dispatch<
-    React.SetStateAction<
-      {
-        name: null | string;
-        value: number;
-      }[]
-    >
-  >;
   value: number;
 }
 
-const EInput = ({ name, value, removable, onChange }: Props) => {
-  const options = engravingKeys;
+const EInput = ({ name, value, onChange }: Props) => {
+  const options = allEngravingKeys;
 
   const onSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     onChange(e.target.value, value);
@@ -102,7 +93,6 @@ const EInput = ({ name, value, removable, onChange }: Props) => {
           </div>
         </div>
       </div>
-      {removable ? <div onClick={removable}>X</div> : null}
     </S.EInput>
   );
 };

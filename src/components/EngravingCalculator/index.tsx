@@ -13,15 +13,31 @@ import * as S from './style';
 
 const EngravingCalculator = () => {
   const [step, setStep] = useState(0);
-  // const [step] = useState(0);
+
+  // EngravingsInput
+  const [standardEngravings, setStandardEngravings] = useState<{ name: null | string; value: number }[]>([
+    { name: null, value: 0 },
+    { name: null, value: 0 },
+    { name: null, value: 0 },
+    { name: null, value: 0 },
+    { name: null, value: 0 },
+    { name: null, value: 0 },
+  ]);
+
+  // Stone Input
+  const [stoneEngravings, setStoneEngravings] = useState<{ name: null | string; value: number }[]>([
+    { name: null, value: 0 },
+    { name: null, value: 0 },
+  ]);
+
   const renderBody = () => {
     switch (step) {
       case 0:
         return <Intro />;
       case 1:
-        return <EngravingInput />;
+        return <EngravingInput standardEngravings={standardEngravings} setStandardEngravings={setStandardEngravings} />;
       case 2:
-        return <StoneInput />;
+        return <StoneInput stoneEngravings={stoneEngravings} setStoneEngravings={setStoneEngravings} />;
       case 3:
         return <BookInput />;
       case 4:
