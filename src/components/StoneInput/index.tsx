@@ -37,7 +37,12 @@ const StoneInput = ({ stoneEngravings, setStoneEngravings }: Props) => {
           {stoneEngravings.map((engraving, index) => {
             const { name, value } = engraving;
             return (
-              <SInput name={name} onChange={(name, value) => engravingOnChange({ name, value, index })} value={value} />
+              <SInput
+                key={index}
+                name={name}
+                onChange={(name, value) => engravingOnChange({ name, value, index })}
+                value={value}
+              />
             );
           })}
         </div>

@@ -30,6 +30,12 @@ const EngravingCalculator = () => {
     { name: null, value: 0 },
   ]);
 
+  // Book Input
+    const [bookEngravings, setBookEngravings] = useState<{ name: null | string; value: number }[]>([
+      { name: null, value: 0 },
+      { name: null, value: 0 },
+    ]);
+
   const renderBody = () => {
     switch (step) {
       case 0:
@@ -39,7 +45,7 @@ const EngravingCalculator = () => {
       case 2:
         return <StoneInput stoneEngravings={stoneEngravings} setStoneEngravings={setStoneEngravings} />;
       case 3:
-        return <BookInput />;
+        return <BookInput bookEngravings={bookEngravings} setBookEngravings={setBookEngravings}/>;
       case 4:
         return <AccessoryInput />;
       case 5:

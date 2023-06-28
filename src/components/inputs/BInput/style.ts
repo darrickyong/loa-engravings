@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export const SInput = styled.div`
+export const BInput = styled.div`
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,7 +27,7 @@ export const SInput = styled.div`
     flex-direction: column;
     justify-content: center;
     padding: 5px;
-    height: 120px%;
+    height: 120px;
     width: 100%;
 
     .title {
@@ -56,18 +57,28 @@ export const SInput = styled.div`
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      vertical-align: middle;
-      background: black;
       height: 72px;
       border-radius: 2px;
       margin-top: 5px;
 
-      img {
-        width: 50px;
-        height: 50px;
+      .selected {
+        border: 2px solid #00ffff;
+        border-radius: 4px;
       }
-      img:hover {
+
+      div {
+        display: flex;
+        width: 80px;
+        height: 80px;
+      }
+      div:hover {
         cursor: pointer;
+      }
+      .purple {
+        background: url(/engravings/BookPurple.png) no-repeat 50% 40%;
+      }
+      .gold {
+        background: url(/engravings/BookGold.png) no-repeat 50% 40%;
       }
     }
   }
