@@ -189,7 +189,11 @@ interface CalculateAccessories {
 const calculateAccessories = ({ total, nodes, remainingAcc }: CalculateAccessories) => {
   const requiredEngravings = nodes.map((node) => node.name);
   const res: Accessory[][] = [];
-  const listOfAccessories = createListofAccessories(requiredEngravings);
+  // TODO: determine if ancient acc can be used
+  const listOfAccessories = createListofAccessories(requiredEngravings, true);
+  
+  // TODO: remainingAcc max is 3, otherwise options are too massive.  Can optimize algo
+  if (remainingAcc > 3) return [];
 
   if (remainingAcc > 0) {
     for (let i = 0; i < listOfAccessories.length; i++) {
@@ -253,7 +257,7 @@ export const engravingAlgo = ({ books, existingAcc, requiredNodes, stone }: Engr
   const remainingAcc = 5 - existingAcc.length;
 
   const { total, nodes } = res;
-  const accessories = calculateAccessories({ total, nodes, remainingAcc })
+  const accessories = calculateAccessories({ total, nodes, remainingAcc });
 
   return accessories;
 };
@@ -262,7 +266,7 @@ const testing = engravingAlgo({
   books: WARDANCER.books as [EngravingBook, EngravingBook],
   requiredNodes: WARDANCER.nodes,
   stone: WARDANCER.stone,
-  existingAcc: WARDANCER.acc
+  existingAcc: WARDANCER.acc,
 });
 
 console.log(testing);
