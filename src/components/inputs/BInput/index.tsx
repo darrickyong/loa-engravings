@@ -39,9 +39,18 @@ const BInput = ({ name, value, onChange }: Props) => {
           {value ? <div className="counter">{`x${value}`}</div> : null}
         </div>
         <div className="level">
-          <div className={`purple ${value === 9 ? 'selected' : ''}`} onClick={() => onNodeChange(9)}></div>
-
-          <div className={`gold ${value === 12 ? 'selected' : ''}`} onClick={() => onNodeChange(12)}></div>
+          <div className={`${value === 3 ? 'selected' : 'unselected'}`}>
+            <img src="/engravings/BookGreen.jpg" onClick={() => onNodeChange(3)} alt="" />
+          </div>
+          <div className={`${value === 6 ? 'selected' : 'unselected'}`}>
+            <img src="/engravings/BookBlue.jpg" onClick={() => onNodeChange(6)} alt="" />
+          </div>
+          <div className={`${value === 9 ? 'selected' : 'unselected'}`}>
+            <img src="/engravings/BookPurple.jpg" onClick={() => onNodeChange(9)} alt="" />
+          </div>
+          <div className={`${value === 12 ? 'selected' : 'unselected'}`}>
+            <img src="/engravings/BookGold.jpg" onClick={() => onNodeChange(12)} alt="" />
+          </div>
         </div>
       </div>
     </S.BInput>

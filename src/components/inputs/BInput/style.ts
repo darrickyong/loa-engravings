@@ -34,7 +34,7 @@ export const BInput = styled.div`
       display: flex;
       align-items: center;
       background: linear-gradient(0.25turn, #172333, #202938, #131d29);
-      height: 40%;
+      height: 30%;
       border-radius: 2px;
 
       .counter {
@@ -59,28 +59,24 @@ export const BInput = styled.div`
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      height: 72px;
       border-radius: 2px;
-      margin-top: 5px;
+      padding-top: 5px;
 
       .selected {
-        border: 2px solid #00ffff;
-        border-radius: 4px;
+        filter: grayscale(0);
+      }
+      .unselected {
+        filter: grayscale(100%);
       }
 
-      div {
-        display: flex;
-        width: 80px;
-        height: 80px;
+      div > img {
+        display: block;
+        height: 60px;
+        width: 60px;
+        border-radius: 5px;
       }
-      div:hover {
+      div > img:hover {
         cursor: pointer;
-      }
-      .purple {
-        background: url(/engravings/BookPurple.png) no-repeat 50% 40%;
-      }
-      .gold {
-        background: url(/engravings/BookGold.png) no-repeat 50% 40%;
       }
     }
   }
