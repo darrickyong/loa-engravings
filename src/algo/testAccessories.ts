@@ -56,10 +56,10 @@ export const DEMO_REQUIRED_NODES = {
 
 export const WARDANCER = {
   nodes: {
-    // total: 75,
-    total: 85,
+    total: 75,
+    // total: 85,
     nodes: [
-      { name: Combat['Adrenaline'], value: 10 },
+      // { name: Combat['Adrenaline'], value: 10 },
       { name: Class['Esoteric Skill Enhancement'], value: 15 },
       { name: Combat['Grudge'], value: 15 },
       { name: Combat['Keen Blunt Weapon'], value: 15 },
@@ -71,22 +71,22 @@ export const WARDANCER = {
     { name: Class['Esoteric Skill Enhancement'], value: 12 },
     { name: Combat['Grudge'], value: 12 },
   ],
-  stone: {
-    eng1: { name: Combat['Keen Blunt Weapon'], value: 9 },
-    eng2: { name: Combat['Adrenaline'], value: 7 },
-  },
   // stone: {
-  //   eng1: { name: Combat['Keen Blunt Weapon'], value: 7 },
-  //   eng2: { name: Combat['Ambush Master'], value: 7 },
+  //   eng1: { name: Combat['Keen Blunt Weapon'], value: 9 },
+  //   eng2: { name: Combat['Adrenaline'], value: 7 },
   // },
+  stone: {
+    eng1: { name: Combat['Keen Blunt Weapon'], value: 7 },
+    eng2: { name: Combat['Ambush Master'], value: 7 },
+  },
   acc: [
     {
-      eng1: { name: Combat['Cursed Doll'], value: 6 },
+      eng1: { name: Combat['Cursed Doll'], value: 5 },
       eng2: { name: Combat['Grudge'], value: 3 },
     },
     {
       eng1: { name: Class['Esoteric Skill Enhancement'], value: 3 },
-      eng2: { name: Combat['Keen Blunt Weapon'], value: 6 },
+      eng2: { name: Combat['Keen Blunt Weapon'], value: 5 },
     },
   ],
 };
