@@ -4,7 +4,7 @@ export const BookInput = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: calc(100vh - 76px - 96px);
   width: 100%;
 
   .title {

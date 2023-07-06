@@ -93,7 +93,7 @@ export const EInput = styled.div<Props>`
         .levelNode {
           display: flex;
           justify-content: space-evenly;
-          padding: 10px 0 0 0;
+          padding-top: 5px;
 
           img {
             width: 30px;

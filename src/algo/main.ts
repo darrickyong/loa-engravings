@@ -67,7 +67,7 @@ enum RequiredEngravingsEnum {
   Two = 10,
   Three = 15,
 }
-interface RequiredEngravings {
+export interface RequiredEngravings {
   name: Combat | Class;
   value: RequiredEngravingsEnum;
 }
@@ -81,7 +81,7 @@ interface RequiredEngravings {
 //   FiveThreeOne = 80,
 //   FiveThreeTwo = 85,
 // }
-interface RequiredNodes {
+export interface RequiredNodes {
   total: number;
   nodes: RequiredEngravings[];
 }

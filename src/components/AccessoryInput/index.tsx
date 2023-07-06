@@ -30,9 +30,11 @@ interface Props {
       }[]
     >
   >;
+  useAncients: boolean;
+  setUseAncients: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const AccessoryInput = ({ accEngravings, setAccEngravings }: Props) => {
+const AccessoryInput = ({ accEngravings, setAccEngravings, setUseAncients, useAncients }: Props) => {
   const engravingOnChange = ({ eng, index, name, value }: accOnChangeProps) => {
     const newEngravings = [...accEngravings];
     newEngravings[index][eng].name = name;
@@ -40,14 +42,28 @@ const AccessoryInput = ({ accEngravings, setAccEngravings }: Props) => {
     setAccEngravings(newEngravings);
   };
 
+  const flipUseAncients = () => {
+    setUseAncients(!useAncients);
+  };
+
   return (
     <S.AccInput>
-      <div className="title">Select the accessories that you have equipped...</div>
+      <div className="title">Select the accessories that you already have purchased...</div>
+      <div className="useAncients">
+        <input type="checkbox" onChange={flipUseAncients} checked={useAncients} />
+        <label onClick={flipUseAncients}>Calculate suggestions using ancient accessories?</label>
+      </div>
       <div className="accessories">
-      {accEngravings.map((accessory, index) => {
-        return <AInput key={index} accessory={accessory} index={index} onChange={({eng, name, value}) => engravingOnChange({ eng, index, name, value})}/>
-      })}
-
+        {accEngravings.map((accessory, index) => {
+          return (
+            <AInput
+              key={index}
+              accessory={accessory}
+              index={index}
+              onChange={({ eng, name, value }) => engravingOnChange({ eng, index, name, value })}
+            />
+          );
+        })}
       </div>
     </S.AccInput>
   );

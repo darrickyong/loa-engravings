@@ -4,10 +4,11 @@ import React from 'react';
 import * as S from './style';
 
 interface Props {
+  isNextDisabled: boolean;
   step: number;
   setStep: React.Dispatch<React.SetStateAction<number>>;
 }
-const Footer = ({ step, setStep }: Props) => {
+const Footer = ({ isNextDisabled, step, setStep }: Props) => {
   const renderPrev = () => {
     if (step === 0) return null;
     const prevStep = step - 1;
@@ -16,7 +17,7 @@ const Footer = ({ step, setStep }: Props) => {
 
   const renderNext = () => {
     if (step === 5) return null;
-    const nextStep = step + 1;
+    const nextStep = isNextDisabled ? step : step + 1;
     return <div onClick={() => setStep(nextStep)}>{step === 0 ? 'Start' : 'Next'}</div>;
   };
 

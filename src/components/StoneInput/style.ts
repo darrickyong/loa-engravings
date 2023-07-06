@@ -4,7 +4,7 @@ export const StoneInput = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: calc(100vh - 76px - 96px);
   min-width: 775px;
   width: 100%;
 
