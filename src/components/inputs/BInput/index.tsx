@@ -6,7 +6,7 @@ import { allEngravingKeys } from 'src/algo/engravings';
 
 interface Props {
   name: null | string;
-  onChange: (name: string, value: number) => void;
+  onChange: (name: string | null, value: number) => void;
   value: number;
 }
 
@@ -25,9 +25,13 @@ const BInput = ({ name, value, onChange }: Props) => {
     }
   };
 
+  const resetNode = () => {
+    onChange(null, 0);
+  };
+
   return (
     <S.BInput>
-      <div className="engrImg">{name ? <img src={`/engravings/${name}.webp`} alt=""></img> : null}</div>
+      <div className="engrImg" onClick={resetNode}>{name ? <img src={`/engravings/${name}.webp`} alt=""></img> : null}</div>
       <div className="engrCol">
         <div className="title">
           <select onChange={onSelectChange} value={name ? name : 'Select Engraving...'}>

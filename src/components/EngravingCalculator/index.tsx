@@ -11,6 +11,7 @@ import React, { useState } from 'react';
 // Style
 import * as S from './style';
 import { Accessory, EngravingBook, RequiredEngravings, RequiredNodes, Stone } from 'src/algo/main';
+// import { isNull } from 'lodash';
 
 const EngravingCalculator = () => {
   const [step, setStep] = useState(0);
@@ -94,6 +95,7 @@ const EngravingCalculator = () => {
         existingAcc.push(acc as Accessory);
       }
     });
+    console.log(existingAcc);
     return existingAcc;
   };
 
@@ -102,14 +104,17 @@ const EngravingCalculator = () => {
       case 0:
         return false;
       case 1:
-        // Standard Engravings
-        // const { total, nodes } = formatRequiredNodes();
-        // return total < 60 || nodes.length < 4;
         return false;
+      // const { total, nodes } = formatRequiredNodes();
+      // return total < 60 || nodes.length < 4;
       case 2:
         return false;
+      // const { eng1, eng2 } = formatStoneNodes();
+      // return eng1.name === null && eng2.name === null ;
       case 3:
         return false;
+        // const [eng1, eng2] = formatBookNodes();
+        // return isNull(eng1.name) || isNull(eng2.name) || eng1.value === 0 || eng2.value === 0;
       case 4:
         return false;
       default:

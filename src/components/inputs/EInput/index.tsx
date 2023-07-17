@@ -6,7 +6,7 @@ import * as S from './style';
 
 interface Props {
   name: null | string;
-  onChange: (name: string, value: number) => void;
+  onChange: (name: string | null, value: number) => void;
   value: number;
 }
 
@@ -25,9 +25,15 @@ const EInput = ({ name, value, onChange }: Props) => {
     }
   };
 
+  const resetNode = () => {
+    onChange(null, 0);
+  };
+
   return (
     <S.EInput value={value}>
-      <div className="engrImg">{name ? <img src={`/engravings/${name}.webp`} alt=""></img> : null}</div>
+      <div className="engrImg" onClick={resetNode}>
+        {name ? <img src={`/engravings/${name}.webp`} alt=""></img> : null}
+      </div>
       <div className="engrCol">
         <div>
           <select onChange={onSelectChange} value={name ? name : 'Select Engraving...'}>

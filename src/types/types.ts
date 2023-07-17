@@ -1,6 +1,6 @@
 export interface engravingOnChangeProps {
   index: number;
-  name: string;
+  name: string | null;
   value: number;
 }
 export interface accOnChangeProps {

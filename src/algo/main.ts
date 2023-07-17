@@ -49,6 +49,7 @@ export interface Stone {
 
 // ENGRAVING BOOKS
 enum BookEnum {
+  None = 0,
   Green = 3,
   Blue = 6,
   Purple = 9,
