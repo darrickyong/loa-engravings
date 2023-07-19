@@ -6,7 +6,7 @@ import { allEngravingKeys } from 'src/algo/engravings';
 
 interface AInputOnChange {
   eng: 'eng1' | 'eng2';
-  name: string;
+  name: string | null;
   value: number;
 }
 
@@ -46,19 +46,32 @@ const AInput = ({ accessory, index, onChange }: Props) => {
     }
   };
 
+  const resetNode = (eng: 'eng1' | 'eng2') => {
+    onChange({ eng, name: null, value: 0 });
+  };
+
   return (
     <S.AInput>
       <div className="title">Accessory {index + 1}</div>
       <div className="eng1">
-        <div className="engrImg">{eng1Name ? <img src={`/engravings/${eng1Name}.webp`} alt=""></img> : null}</div>
+        <div className="engrImg" onClick={() => resetNode('eng1')}>
+          {eng1Name ? <img src={`/engravings/${eng1Name}.webp`} alt=""></img> : null}
+        </div>
         <div className="engrSelect">
-          <select className="selectEngr"onChange={(e) => onNameChange(e, 'eng1', eng1Value)} value={eng1Name ? eng1Name : 'Select Engraving...'}>
+          <select
+            className="selectEngr"
+            onChange={(e) => onNameChange(e, 'eng1', eng1Value)}
+            value={eng1Name ? eng1Name : 'Select Engraving...'}
+          >
             <option disabled>Select Engraving...</option>
             {options.map((option, idx) => (
               <option key={idx}>{option}</option>
             ))}
           </select>
-          <select onChange={(e) => onNodeChange(e, 'eng1', eng1Name)} value={eng1Value ? eng1Value : 'Select Node Amount...'}>
+          <select
+            onChange={(e) => onNodeChange(e, 'eng1', eng1Name)}
+            value={eng1Value ? eng1Value : 'Select Node Amount...'}
+          >
             <option disabled>Select Node Amount...</option>
             {primaryValueOptions.map((option, idx) => (
               <option key={idx} value={option}>{`Node + ${option}`}</option>
@@ -68,15 +81,24 @@ const AInput = ({ accessory, index, onChange }: Props) => {
       </div>
 
       <div className="eng2">
-        <div className="engrImg">{eng2Name ? <img src={`/engravings/${eng2Name}.webp`} alt=""></img> : null}</div>
+        <div className="engrImg" onClick={() => resetNode('eng2')}>
+          {eng2Name ? <img src={`/engravings/${eng2Name}.webp`} alt=""></img> : null}
+        </div>
         <div className="engrSelect">
-          <select className="selectEngr"onChange={(e) => onNameChange(e, 'eng2', eng2Value)} value={eng2Name ? eng2Name : 'Select Engraving'}>
+          <select
+            className="selectEngr"
+            onChange={(e) => onNameChange(e, 'eng2', eng2Value)}
+            value={eng2Name ? eng2Name : 'Select Engraving'}
+          >
             <option disabled>Select Engraving</option>
             {options.map((option, idx) => (
               <option key={idx}>{option}</option>
             ))}
           </select>
-          <select onChange={(e) => onNodeChange(e, 'eng2', eng2Name)} value={eng2Value ? eng2Value : 'Select Node Amount'}>
+          <select
+            onChange={(e) => onNodeChange(e, 'eng2', eng2Name)}
+            value={eng2Value ? eng2Value : 'Select Node Amount'}
+          >
             <option disabled>Select Node Amount</option>
             {secondaryValueOptions.map((option, idx) => (
               <option key={idx} value={option}>{`Node + ${option}`}</option>

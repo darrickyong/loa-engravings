@@ -95,7 +95,6 @@ const EngravingCalculator = () => {
         existingAcc.push(acc as Accessory);
       }
     });
-    console.log(existingAcc);
     return existingAcc;
   };
 
@@ -104,18 +103,27 @@ const EngravingCalculator = () => {
       case 0:
         return false;
       case 1:
+        const { total, nodes } = formatRequiredNodes();
+        if (total < 60 || nodes.length < 4) {
+          return true;
+        }
         return false;
-      // const { total, nodes } = formatRequiredNodes();
-      // return total < 60 || nodes.length < 4;
       case 2:
+        const { eng1: eng1Stone, eng2: eng2Stone } = formatStoneNodes();
+        if (!eng1Stone.name && !eng2Stone.name) {
+          return true;
+        };
         return false;
-      // const { eng1, eng2 } = formatStoneNodes();
-      // return eng1.name === null && eng2.name === null ;
       case 3:
+        const [eng1Book, eng2Book] = formatBookNodes();
+        if (!eng1Book.name || !eng2Book.name || !eng1Book.value || !eng2Book.value) {
+          return true
+        };
         return false;
-        // const [eng1, eng2] = formatBookNodes();
-        // return isNull(eng1.name) || isNull(eng2.name) || eng1.value === 0 || eng2.value === 0;
       case 4:
+        if (formatAccNodes().length < 2) {
+          return true;
+        }
         return false;
       default:
         return false;
