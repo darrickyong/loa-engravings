@@ -1,16 +1,6 @@
 import { Class, Combat } from './engravings';
-import {
-  // DEMO_BOOKS,
-  // DEMO_EARRING1,
-  // DEMO_EARRING2,
-  // DEMO_NECKLACE,
-  // DEMO_REQUIRED_NODES,
-  // DEMO_RING1,
-  // DEMO_RING2,
-  // DEMO_STONE,
-  WARDANCER,
-} from './testAccessories';
-import { isEqual } from 'lodash';
+import { WARDANCER } from './testAccessories';
+import { cloneDeep, isEqual } from 'lodash';
 
 // ACCESSORIES
 enum AccessoryEnum {
@@ -217,14 +207,14 @@ const calculateAccessories = ({ total, nodes, remainingAcc, useAncients }: Calcu
 
   // Use Ancients or not
   const listOfAccessories = createListofAccessories(requiredEngravings, total, remainingAcc, useAncients);
-  console.log('LENGTH OF LIST OF ACC', listOfAccessories.length);
+  // console.log('LENGTH OF LIST OF ACC', listOfAccessories.length);
 
   // TODO: remainingAcc max is 3, otherwise options are too massive.  Can optimize algo
   if (remainingAcc > 4) {
     return [['Five Acc']];
   }
 
-  if (total / remainingAcc <= 7) {
+  if (total / remainingAcc <= 6.5) {
     return [["Don't be lazy"]];
   }
 
@@ -303,11 +293,11 @@ const calculateAccessories = ({ total, nodes, remainingAcc, useAncients }: Calcu
     }
   } else return [["Don't need any more acc"]];
 
-  console.log('-------------', res.length);
+  // console.log('-------------', res.length);
   // console.log('FIRST ITEM', res[0]);
-  res.forEach((acc) => {
-    console.log(acc);
-  });
+  // res.forEach((acc) => {
+  //   console.log(acc);
+  // });
 
   return res;
 };
@@ -338,15 +328,18 @@ export const engravingAlgo = ({ books, existingAcc, requiredNodes, stone, useAnc
   return accessories;
 };
 
-const testing = engravingAlgo({
-  books: WARDANCER.books as [EngravingBook, EngravingBook],
-  requiredNodes: WARDANCER.nodes,
-  stone: WARDANCER.stone,
-  existingAcc: WARDANCER.acc,
-  useAncients: false,
-});
+const DUPE = cloneDeep(WARDANCER);
+console.log(DUPE);
 
-console.log(testing);
+// const testing = engravingAlgo({
+//   books: DUPE.books as [EngravingBook, EngravingBook],
+//   requiredNodes: DUPE.nodes,
+//   stone: DUPE.stone,
+//   existingAcc: DUPE.acc,
+//   useAncients: false,
+// });
+// console.log(testing);
+
 
 // console.log(
 //   calculateAccessories({

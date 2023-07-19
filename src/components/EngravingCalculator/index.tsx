@@ -7,64 +7,42 @@ import Intro from '../Intro';
 import Results from '../Results';
 import StoneInput from '../StoneInput';
 import React, { useState } from 'react';
+import { Accessory, EngravingBook, RequiredEngravings, RequiredNodes, Stone } from 'src/algo/main';
+import { WARDANCER } from 'src/algo/testAccessories';
+// import { DEFAULTS } from '../constants';
 
 // Style
 import * as S from './style';
-import { Accessory, EngravingBook, RequiredEngravings, RequiredNodes, Stone } from 'src/algo/main';
-// import { isNull } from 'lodash';
 
 const EngravingCalculator = () => {
   const [step, setStep] = useState(0);
-
   const [useAncients, setUseAncients] = useState(false);
 
   // EngravingsInput
-  const [standardEngravings, setStandardEngravings] = useState<{ name: null | string; value: number }[]>([
-    { name: null, value: 0 },
-    { name: null, value: 0 },
-    { name: null, value: 0 },
-    { name: null, value: 0 },
-    { name: null, value: 0 },
-    { name: null, value: 0 },
-  ]);
+  const [standardEngravings, setStandardEngravings] = useState<{ name: null | string; value: number }[]>(
+    WARDANCER.nodes.nodes
+    // DEFAULTS.standardEngravings
+  );
 
   // Stone Input
-  const [stoneEngravings, setStoneEngravings] = useState<{ name: null | string; value: number }[]>([
-    { name: null, value: 0 },
-    { name: null, value: 0 },
-  ]);
+  const [stoneEngravings, setStoneEngravings] = useState<{ name: null | string; value: number }[]>(
+    Object.values(WARDANCER.stone)
+    // DEFAULTS.stoneEngravings
+  );
 
   // Book Input
-  const [bookEngravings, setBookEngravings] = useState<{ name: null | string; value: number }[]>([
-    { name: null, value: 0 },
-    { name: null, value: 0 },
-  ]);
+  const [bookEngravings, setBookEngravings] = useState<{ name: null | string; value: number }[]>(
+    WARDANCER.books
+    // DEFAULTS.bookEngravings
+  );
 
   // Accessory Input
   const [accEngravings, setAccEngravings] = useState<
     { eng1: { name: null | string; value: number }; eng2: { name: null | string; value: number } }[]
-  >([
-    {
-      eng1: { name: null, value: 0 },
-      eng2: { name: null, value: 0 },
-    },
-    {
-      eng1: { name: null, value: 0 },
-      eng2: { name: null, value: 0 },
-    },
-    {
-      eng1: { name: null, value: 0 },
-      eng2: { name: null, value: 0 },
-    },
-    {
-      eng1: { name: null, value: 0 },
-      eng2: { name: null, value: 0 },
-    },
-    {
-      eng1: { name: null, value: 0 },
-      eng2: { name: null, value: 0 },
-    },
-  ]);
+  >(
+    WARDANCER.acc
+    // DEFAULTS.accEngravings
+  );
 
   const formatRequiredNodes = () => {
     const requiredNodes: RequiredNodes = { total: 0, nodes: [] };
@@ -75,14 +53,18 @@ const EngravingCalculator = () => {
         requiredNodes.nodes.push(engraving as RequiredEngravings);
       }
     });
+    console.log('REQUIRED NODES FORMAT', requiredNodes);
     return requiredNodes;
   };
 
   const formatStoneNodes = () => {
-    return { eng1: stoneEngravings[0], eng2: stoneEngravings[1] } as Stone;
+    const res = { eng1: stoneEngravings[0], eng2: stoneEngravings[1] } as Stone;
+    console.log('REQUIRED STONE NODES FORMAT', res);
+    return res;
   };
 
   const formatBookNodes = () => {
+    console.log('REQUIRED BOOK NODES FORMAT', bookEngravings);
     return bookEngravings as [EngravingBook, EngravingBook];
   };
 
@@ -95,6 +77,7 @@ const EngravingCalculator = () => {
         existingAcc.push(acc as Accessory);
       }
     });
+    console.log('REQUIRED ACC NODES FORMAT', existingAcc);
     return existingAcc;
   };
 
@@ -112,13 +95,13 @@ const EngravingCalculator = () => {
         const { eng1: eng1Stone, eng2: eng2Stone } = formatStoneNodes();
         if (!eng1Stone.name && !eng2Stone.name) {
           return true;
-        };
+        }
         return false;
       case 3:
         const [eng1Book, eng2Book] = formatBookNodes();
         if (!eng1Book.name || !eng2Book.name || !eng1Book.value || !eng2Book.value) {
-          return true
-        };
+          return true;
+        }
         return false;
       case 4:
         if (formatAccNodes().length < 2) {

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { MagnifyingGlass } from 'react-loader-spinner';
+import { Accessory, EngravingBook, RequiredNodes, Stone, engravingAlgo } from 'src/algo/main';
+import AResult from '../inputs/AResult';
 
 // Style
 import * as S from './style';
-import { MagnifyingGlass } from 'react-loader-spinner';
-import { Accessory, EngravingBook, RequiredNodes, Stone, engravingAlgo } from 'src/algo/main';
 
 interface Props {
   standardEngravings: RequiredNodes;
@@ -14,16 +15,47 @@ interface Props {
 }
 const Results = ({ standardEngravings, stoneEngravings, bookEngravings, accEngravings, useAncients }: Props) => {
   const [calculating, setCalculating] = useState(true);
+  const [accessories, setAccessories] = useState<null | Accessory[][]>(null);
 
-  const accessories = engravingAlgo({
-    books: bookEngravings,
-    requiredNodes: standardEngravings,
-    stone: stoneEngravings,
-    existingAcc: accEngravings,
-    useAncients,
-  });
+  // const accessories = engravingAlgo({
+  //   books: bookEngravings,
+  //   requiredNodes: standardEngravings,
+  //   stone: stoneEngravings,
+  //   existingAcc: accEngravings,
+  //   useAncients,
+  // }) as Accessory[][];
 
-  console.log(accessories);
+  useEffect(() => {
+    if (!accessories) {
+      setCalculating(false);
+      setAccessories(
+        engravingAlgo({
+          requiredNodes: standardEngravings,
+          books: bookEngravings,
+          stone: stoneEngravings,
+          existingAcc: accEngravings,
+          useAncients,
+        }) as Accessory[][]
+      );
+    }
+  }, [accessories, setAccessories, standardEngravings, bookEngravings, stoneEngravings, accEngravings, useAncients]);
+
+  const renderRes = () => {
+    if (!accessories) return null;
+    return (
+      <div>
+        {accessories.map((accessoryList, idx) => {
+          return (
+            <div key={idx}>
+              {accessoryList.map((accessory, index) => {
+                return <AResult key={index} accessory={accessory} index={index + accEngravings.length} />;
+              })}
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
 
   return (
     <S.Results>
@@ -40,7 +72,9 @@ const Results = ({ standardEngravings, stoneEngravings, bookEngravings, accEngra
           glassColor="#f5efdc"
           color="#00ffff"
         />
-      ) : null}
+      ) : (
+        renderRes()
+      )}
       <div onClick={() => setCalculating(!calculating)}>CLICK ME</div>
     </S.Results>
   );
