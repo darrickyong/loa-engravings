@@ -91,10 +91,10 @@ const createListofAccessories = (
   remainingAcc: number,
   useAncients: boolean
 ) => {
-  console.log('TOTAL NODES REMAINING', total);
-  console.log('REMAINING ACC', remainingAcc);
   const minNodesPerAcc = total / remainingAcc;
-  console.log('MINIMUM NODES PER ACC', minNodesPerAcc);
+  // console.log('TOTAL NODES REMAINING', total);
+  // console.log('REMAINING ACC', remainingAcc);
+  // console.log('MINIMUM NODES PER ACC', minNodesPerAcc);
   const listOfAccessories: Accessory[] = [];
 
   for (let i = 0; i < requiredEngravings.length; i++) {
@@ -102,7 +102,7 @@ const createListofAccessories = (
       if (i !== j) {
         const primaryEngraving = requiredEngravings[i];
         const secondaryEngraving = requiredEngravings[j];
-        if (minNodesPerAcc <= 8) {
+        if ((useAncients && minNodesPerAcc <= 9 * (remainingAcc - 1) + 8) || minNodesPerAcc <= 8) {
           listOfAccessories.push({
             eng1: { name: primaryEngraving, value: 5 },
             eng2: { name: secondaryEngraving, value: 3 },
@@ -211,15 +211,16 @@ const calculateAccessories = ({ total, nodes, remainingAcc, useAncients }: Calcu
 
   // TODO: remainingAcc max is 3, otherwise options are too massive.  Can optimize algo
   if (remainingAcc > 4) {
-    return [['Five Acc']];
+    throw new Error('Needs at least one accessory to start calculating.');
   }
 
-  if (total / remainingAcc <= 6.5) {
-    return [["Don't be lazy"]];
+  if (total / remainingAcc <= 7) {
+    throw new Error('You only need legendary accessories for this.');
   }
 
   if (total / remainingAcc > 9) {
-    return [['Not possible, greater than 9']];
+    // console.log('TOTAL / REMAINING', total, remainingAcc);
+    throw new Error('Requires more than ancient accessories.');
   }
 
   if (remainingAcc > 0) {
@@ -290,7 +291,7 @@ const calculateAccessories = ({ total, nodes, remainingAcc, useAncients }: Calcu
           res.push(iterationOfAcc);
       }
     }
-  } else return [["Don't need any more acc"]];
+  } else throw new Error('No accessories needed.');
 
   // console.log('-------------', res.length);
   // console.log('FIRST ITEM', res[0]);
@@ -323,23 +324,23 @@ export const engravingAlgo = ({ books, existingAcc, requiredNodes, stone, useAnc
 
   const { total, nodes } = res;
   const accessories = calculateAccessories({ total, nodes, remainingAcc, useAncients });
-  
-  // Check remaining required nodes easily
-  // console.log('REQUIRED NODES CHECK', res);
 
+  // Check remaining required nodes easily
+  console.log('---------- REQUIRED NODES CHECK ----------', res);
+  console.log('---------- REMAINING ACC ----------', remainingAcc);
+  accessories.forEach((acc) => console.log('RESULT', acc));
   return accessories;
 };
 
-const testing = engravingAlgo({
-  books: WARDANCER.books as [EngravingBook, EngravingBook],
-  requiredNodes: WARDANCER.nodes,
-  stone: WARDANCER.stone,
-  existingAcc: WARDANCER.acc,
-  useAncients: true,
-});
-console.log("RESULTS", testing);
+// const testing = engravingAlgo({
+//   books: WARDANCER.books as [EngravingBook, EngravingBook],
+//   requiredNodes: WARDANCER.nodes,
+//   stone: WARDANCER.stone,
+//   existingAcc: WARDANCER.acc,
+//   useAncients: false,
+// });
+// console.log('RESULTS', testing);
 // testing.forEach(test => console.log("RESULT", test));
-
 
 // console.log(
 //   calculateAccessories({
