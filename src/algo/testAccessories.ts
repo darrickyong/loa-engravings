@@ -70,8 +70,8 @@ export const WARDANCER = {
     ],
   },
   books: [
-    { name: Class['Esoteric Skill Enhancement'], value: 12 },
-    { name: Combat['Grudge'], value: 12 },
+    { name: Class['Esoteric Skill Enhancement'], value: 9 },
+    { name: Combat['Grudge'], value: 9 },
   ],
   // stone: {
   //   eng1: { name: Combat['Keen Blunt Weapon'], value: 9 },
@@ -83,12 +83,12 @@ export const WARDANCER = {
   },
   acc: [
     {
-      eng1: { name: Combat['Cursed Doll'], value: 5 },
-      eng2: { name: Combat['Keen Blunt Weapon'], value: 3 },
+      eng1: { name: Combat['Keen Blunt Weapon'], value: 5 },
+      eng2: { name: Combat['Cursed Doll'], value: 3 },
     },
     {
-      eng1: { name: Combat['Ambush Master'], value: 5 },
-      eng2: { name: Class['Esoteric Skill Enhancement'], value: 3 },
+      eng1: { name: Combat['Cursed Doll'], value: 5 },
+      eng2: { name: Combat['Ambush Master'], value: 3 },
     },
   ],
 };

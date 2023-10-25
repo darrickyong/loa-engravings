@@ -102,12 +102,6 @@ const createListofAccessories = (
       if (i !== j) {
         const primaryEngraving = requiredEngravings[i];
         const secondaryEngraving = requiredEngravings[j];
-        if (minNodesPerAcc <= 7) {
-          listOfAccessories.push({
-            eng1: { name: primaryEngraving, value: 4 },
-            eng2: { name: secondaryEngraving, value: 3 },
-          });
-        }
         if (minNodesPerAcc <= 8) {
           listOfAccessories.push({
             eng1: { name: primaryEngraving, value: 5 },
@@ -120,6 +114,12 @@ const createListofAccessories = (
             eng2: { name: secondaryEngraving, value: 3 },
           });
         }
+        // if (minNodesPerAcc <= 7) {
+        //   listOfAccessories.push({
+        //     eng1: { name: primaryEngraving, value: 4 },
+        //     eng2: { name: secondaryEngraving, value: 3 },
+        //   });
+        // }
         // if (minNodesPerAcc <= 6) {
         //   listOfAccessories.push({
         //     eng1: { name: primaryEngraving, value: 3 },
@@ -240,7 +240,7 @@ const calculateAccessories = ({ total, nodes, remainingAcc, useAncients }: Calcu
                         listOfAccessories[m],
                       ];
                       if (
-                        isEngravingEnough(total, structuredClone(nodes), iterationOfAcc, useAncients) &&
+                        isEngravingEnough(total, cloneDeep(nodes), iterationOfAcc, useAncients) &&
                         !isSetOfAccKnown(res, iterationOfAcc)
                       ) {
                         res.push(iterationOfAcc);
@@ -253,9 +253,8 @@ const calculateAccessories = ({ total, nodes, remainingAcc, useAncients }: Calcu
                       listOfAccessories[k],
                       listOfAccessories[l],
                     ];
-                    // console.log(count++);
                     if (
-                      isEngravingEnough(total, structuredClone(nodes), iterationOfAcc, useAncients) &&
+                      isEngravingEnough(total, cloneDeep(nodes), iterationOfAcc, useAncients) &&
                       !isSetOfAccKnown(res, iterationOfAcc)
                     ) {
                       res.push(iterationOfAcc);
@@ -265,7 +264,7 @@ const calculateAccessories = ({ total, nodes, remainingAcc, useAncients }: Calcu
               } else {
                 const iterationOfAcc = [listOfAccessories[i], listOfAccessories[j], listOfAccessories[k]];
                 if (
-                  isEngravingEnough(total, structuredClone(nodes), iterationOfAcc, useAncients) &&
+                  isEngravingEnough(total, cloneDeep(nodes), iterationOfAcc, useAncients) &&
                   !isSetOfAccKnown(res, iterationOfAcc)
                 ) {
                   res.push(iterationOfAcc);
@@ -275,7 +274,7 @@ const calculateAccessories = ({ total, nodes, remainingAcc, useAncients }: Calcu
           } else {
             const iterationOfAcc = [listOfAccessories[i], listOfAccessories[j]];
             if (
-              isEngravingEnough(total, structuredClone(nodes), iterationOfAcc, useAncients) &&
+              isEngravingEnough(total, cloneDeep(nodes), iterationOfAcc, useAncients) &&
               !isSetOfAccKnown(res, iterationOfAcc)
             ) {
               res.push(iterationOfAcc);
@@ -285,7 +284,7 @@ const calculateAccessories = ({ total, nodes, remainingAcc, useAncients }: Calcu
       } else {
         const iterationOfAcc = [listOfAccessories[i]];
         if (
-          isEngravingEnough(total, structuredClone(nodes), iterationOfAcc, useAncients) &&
+          isEngravingEnough(total, cloneDeep(nodes), iterationOfAcc, useAncients) &&
           !isSetOfAccKnown(res, iterationOfAcc)
         )
           res.push(iterationOfAcc);
@@ -304,7 +303,7 @@ const calculateAccessories = ({ total, nodes, remainingAcc, useAncients }: Calcu
 
 export const engravingAlgo = ({ books, existingAcc, requiredNodes, stone, useAncients }: EngravingReq) => {
   // Determine whether or not calculation is possible
-  const res = { ...requiredNodes };
+  const res = cloneDeep(requiredNodes);
 
   // Consume BOOKS
   books.forEach((book) => findEngravingAndDecrement(res, book, false));
@@ -324,21 +323,22 @@ export const engravingAlgo = ({ books, existingAcc, requiredNodes, stone, useAnc
 
   const { total, nodes } = res;
   const accessories = calculateAccessories({ total, nodes, remainingAcc, useAncients });
+  
+  // Check remaining required nodes easily
+  // console.log('REQUIRED NODES CHECK', res);
 
   return accessories;
 };
 
-const DUPE = cloneDeep(WARDANCER);
-console.log(DUPE);
-
-// const testing = engravingAlgo({
-//   books: DUPE.books as [EngravingBook, EngravingBook],
-//   requiredNodes: DUPE.nodes,
-//   stone: DUPE.stone,
-//   existingAcc: DUPE.acc,
-//   useAncients: false,
-// });
-// console.log(testing);
+const testing = engravingAlgo({
+  books: WARDANCER.books as [EngravingBook, EngravingBook],
+  requiredNodes: WARDANCER.nodes,
+  stone: WARDANCER.stone,
+  existingAcc: WARDANCER.acc,
+  useAncients: true,
+});
+console.log("RESULTS", testing);
+// testing.forEach(test => console.log("RESULT", test));
 
 
 // console.log(
