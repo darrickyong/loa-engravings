@@ -313,9 +313,9 @@ export const engravingAlgo = ({ books, existingAcc, requiredNodes, stone, useAnc
   const accessories = calculateAccessories({ total, nodes, remainingAcc, useAncients });
 
   // Check remaining required nodes easily
-  console.log('---------- REQUIRED NODES CHECK ----------', res);
-  console.log('---------- REMAINING ACC ----------', remainingAcc);
-  accessories.forEach((acc) => console.log('RESULT', acc));
+  // console.log('---------- REQUIRED NODES CHECK ----------', res);
+  // console.log('---------- REMAINING ACC ----------', remainingAcc);
+  // accessories.forEach((acc) => console.log('RESULT', acc));
   return accessories;
 };
 

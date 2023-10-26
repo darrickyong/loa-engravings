@@ -158,6 +158,45 @@ const WARDANCER = {
   ],
 };
 
+const CONTROL = {
+  // { name: 'Grudge', value: 6 },
+  // { name: 'Raid Captain', value: 15 },
+  // { name: 'Ambush Master', value: 4 },
+  // { name: 'Adrenaline', value: 8 }
+  nodes: {
+    total: 75,
+    nodes: [
+      { name: Class['Control'], value: 15 },
+      { name: Combat['Grudge'], value: 15 },
+      { name: Combat['Raid Captain'], value: 15 },
+      { name: Combat['Ambush Master'], value: 15 },
+      { name: Combat['Adrenaline'], value: 15 },
+    ],
+  },
+  books: [
+    { name: Class['Control'], value: 12 },
+    { name: Combat['Grudge'], value: 9 },
+  ],
+  booksTwo: [
+    { name: Class['Control'], value: 12 },
+    { name: Combat['Grudge'], value: 12 },
+  ],
+  stone: {
+    eng1: { name: Combat['Ambush Master'], value: 6 },
+    eng2: { name: Combat['Adrenaline'], value: 7 },
+  },
+  stoneTwo: {
+    eng1: { name: Combat['Ambush Master'], value: 4 },
+    eng2: { name: Combat['Adrenaline'], value: 7 },
+  },
+  acc: [
+    {
+      eng1: { name: Combat['Raid Captain'], value: 5 },
+      eng2: { name: Class['Control'], value: 3 },
+    },
+  ],
+};
+
 describe('Random examples should calculate properly', () => {
   test('A 5x3 requirement with mixed accessories should calculate', () => {
     const caseOne = engravingAlgo({
@@ -180,6 +219,27 @@ describe('Random examples should calculate properly', () => {
       useAncients: false,
     });
     expect(caseTwo.length).toBe(3);
+  });
+
+  test('A 5x3 CONTROL requirement should calculate', () => {
+    const control = engravingAlgo({
+      books: CONTROL.books as [EngravingBook, EngravingBook],
+      requiredNodes: CONTROL.nodes,
+      stone: CONTROL.stone,
+      existingAcc: CONTROL.acc,
+      useAncients: true,
+    });
+    expect(control.length).toBe(6);
+  });
+  test('A 5x3 CONTROLTWO requirement should calculate', () => {
+    const control = engravingAlgo({
+      books: CONTROL.booksTwo as [EngravingBook, EngravingBook],
+      requiredNodes: CONTROL.nodes,
+      stone: CONTROL.stoneTwo,
+      existingAcc: CONTROL.acc,
+      useAncients: true,
+    });
+    expect(control.length).toBe(3);
   });
 });
 
