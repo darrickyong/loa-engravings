@@ -2,18 +2,11 @@ import React from 'react';
 
 // Style
 import * as S from './style';
+import { Tooltip } from 'react-tooltip';
+import { Accessory } from 'src/algo/main';
 interface Props {
-  accessory: {
-    eng1: {
-      name: string;
-      value: number;
-    };
-    eng2: {
-      name: string;
-      value: number;
-    };
-  };
-  index: number;
+  accessory: Accessory
+  index: string;
 }
 
 const AResult = ({ accessory, index }: Props) => {
@@ -22,25 +15,26 @@ const AResult = ({ accessory, index }: Props) => {
     eng2: { name: eng2Name, value: eng2Value },
   } = accessory;
 
-  return (
-    <S.AResult>
-      <div className="title">Accessory {index + 1}</div>
-      <div className="eng1">
-        <div className="engrImg">{eng1Name ? <img src={`/engravings/${eng1Name}.webp`} alt=""></img> : null}</div>
-        <div className="engrSelect">
-          <div className="selectEngr">{eng1Name}</div>
-          <div className="selectEngr">{eng1Value}</div>
-        </div>
-      </div>
+  const imgSrc = eng1Value + eng2Value > 8 ? 'AccAncient.png' : 'AccRelic.png';
+  const bgImg = eng1Value + eng2Value > 8 ? 'BGAncient.png' : 'BGRelic.png';
 
-      <div className="eng2">
-        <div className="engrImg">{eng2Name ? <img src={`/engravings/${eng2Name}.webp`} alt=""></img> : null}</div>
-        <div className="engrSelect">
-          <div className="selectEngr">{eng2Name}</div>
-          <div className="selectEngr">{eng2Value}</div>
-        </div>
+  const tooltip = (
+    <Tooltip
+      anchorSelect={`.anchor-${index}`}
+      id={index}
+      style={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}
+    >
+      <div>{`${eng1Name} +${eng1Value}`}</div> <div>{`${eng2Name} +${eng2Value}`}</div>
+    </Tooltip>
+  );
+
+  return (
+    <S.AResultTooltip data-for={index} className={`anchor-${index}`} $bgImg={bgImg}>
+      {tooltip}
+      <div className="img-container">
+        <img src={imgSrc} alt="" />
       </div>
-    </S.AResult>
+    </S.AResultTooltip>
   );
 };
 

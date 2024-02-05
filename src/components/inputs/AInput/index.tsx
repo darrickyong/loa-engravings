@@ -22,10 +22,11 @@ interface Props {
     };
   };
   index: number;
+  disabled?: boolean;
   onChange: ({ eng, name, value }: AInputOnChange) => void;
 }
 
-const AInput = ({ accessory, index, onChange }: Props) => {
+const AInput = ({ accessory, index, onChange, disabled = false }: Props) => {
   const {
     eng1: { name: eng1Name, value: eng1Value },
     eng2: { name: eng2Name, value: eng2Value },
@@ -50,8 +51,12 @@ const AInput = ({ accessory, index, onChange }: Props) => {
     onChange({ eng, name: null, value: 0 });
   };
 
+  const onMouseDown = (e: React.MouseEvent<HTMLSelectElement>) => {
+    if (disabled) e.preventDefault();
+  };
+
   return (
-    <S.AInput>
+    <S.AInput disabled={disabled}>
       <div className="title">Accessory {index + 1}</div>
       <div className="eng1">
         <div className="engrImg" onClick={() => resetNode('eng1')}>
@@ -61,6 +66,7 @@ const AInput = ({ accessory, index, onChange }: Props) => {
           <select
             className="selectEngr"
             onChange={(e) => onNameChange(e, 'eng1', eng1Value)}
+            onMouseDown={onMouseDown}
             value={eng1Name ? eng1Name : 'Select Engraving...'}
           >
             <option disabled>Select Engraving...</option>
@@ -70,6 +76,7 @@ const AInput = ({ accessory, index, onChange }: Props) => {
           </select>
           <select
             onChange={(e) => onNodeChange(e, 'eng1', eng1Name)}
+            onMouseDown={onMouseDown}
             value={eng1Value ? eng1Value : 'Select Node Amount...'}
           >
             <option disabled>Select Node Amount...</option>
@@ -88,6 +95,7 @@ const AInput = ({ accessory, index, onChange }: Props) => {
           <select
             className="selectEngr"
             onChange={(e) => onNameChange(e, 'eng2', eng2Value)}
+            onMouseDown={onMouseDown}
             value={eng2Name ? eng2Name : 'Select Engraving'}
           >
             <option disabled>Select Engraving</option>
@@ -97,6 +105,7 @@ const AInput = ({ accessory, index, onChange }: Props) => {
           </select>
           <select
             onChange={(e) => onNodeChange(e, 'eng2', eng2Name)}
+            onMouseDown={onMouseDown}
             value={eng2Value ? eng2Value : 'Select Node Amount'}
           >
             <option disabled>Select Node Amount</option>

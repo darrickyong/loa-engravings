@@ -8,7 +8,7 @@ export const BookInput = styled.div`
   width: 100%;
 
   .title {
-    font-size: 20px;
+    font-size: 1.5rem;
     margin-bottom: 5px;
     color: #00ffff;
   }

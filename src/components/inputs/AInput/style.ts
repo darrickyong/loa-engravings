@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-interface Props {}
+interface Props {
+  disabled: boolean;
+}
 
 export const AInput = styled.div<Props>`
   display: flex;
@@ -17,7 +19,7 @@ export const AInput = styled.div<Props>`
   }
 
   select:hover {
-    cursor: pointer;
+    cursor: ${({ disabled }) => (disabled ? 'auto' : 'pointer')};
   }
 
   .eng1,

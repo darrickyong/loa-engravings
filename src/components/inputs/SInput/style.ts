@@ -26,7 +26,7 @@ export const SInput = styled.div`
     flex-direction: column;
     justify-content: center;
     padding: 5px;
-    height: 120px%;
+    height: 120px;
     width: 100%;
 
     .title {
@@ -45,7 +45,7 @@ export const SInput = styled.div`
 
     div > select {
       line-height: 20px;
-      font-size: 16px;
+      font-size: 1rem;
       padding: 10px;
       color: #dddddd;
     }

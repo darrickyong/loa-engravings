@@ -70,18 +70,18 @@ export const WARDANCER = {
     ],
   },
   books: [
-    { name: Class['Esoteric Skill Enhancement'], value: 12 },
+    { name: Class['Esoteric Skill Enhancement'], value: 9 },
     { name: Combat['Grudge'], value: 12 },
   ],
-  stone: {
-    eng1: { name: Combat['Keen Blunt Weapon'], value: 9 },
-    eng2: { name: Combat['Adrenaline'], value: 7 },
-    // eng2: { name: Combat['Ambush Master'], value: 7 },
-  },
   // stone: {
-  //   eng1: { name: Combat['Keen Blunt Weapon'], value: 7 },
-  //   eng2: { name: Combat['Cursed Doll'], value: 7 },
+    // eng1: { name: Combat['Keen Blunt Weapon'], value: 9 },
+    // eng2: { name: Combat['Adrenaline'], value: 7 },
+  //   eng2: { name: Combat['Ambush Master'], value: 7 },
   // },
+  stone: {
+    eng1: { name: Combat['Keen Blunt Weapon'], value: 7 },
+    eng2: { name: Combat['Cursed Doll'], value: 7 },
+  },
   acc: [
     {
       eng1: { name: Combat['Keen Blunt Weapon'], value: 5 },
@@ -89,7 +89,7 @@ export const WARDANCER = {
     },
     {
       eng1: { name: Combat['Cursed Doll'], value: 5 },
-      eng2: { name: Combat['Ambush Master'], value: 3 },
+      eng2: { name: Combat['Keen Blunt Weapon'], value: 3 },
     },
   ],
 };

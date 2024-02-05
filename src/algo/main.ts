@@ -1,5 +1,5 @@
 import { Class, Combat } from './engravings';
-import { WARDANCER } from './testAccessories';
+// import { WARDANCER } from './testAccessories';
 import { cloneDeep, isEqual } from 'lodash';
 
 // ACCESSORIES

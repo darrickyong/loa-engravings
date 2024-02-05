@@ -56,6 +56,7 @@ export enum Class {
   'Deathblow' = 'Deathblow',
   'Demonic Impulse' = 'Demonic Impulse',
   'Desperate Salvation' = 'Desperate Salvation',
+  'Drizzle' = 'Drizzle',
   'Empresss Grace' = "Empress's Grace",
   'Energy Overflow' = 'Energy Overflow',
   'Enhanced Weapon' = 'Enhanced Weapon',
@@ -91,6 +92,7 @@ export enum Class {
   'Time to Hunt' = 'Time to Hunt',
   'True Courage' = 'True Courage',
   'Ultimate Skill: Taijutsu' = 'Ultimate Skill: Taijutsu',
+  'Wind Fury' = 'Wind Fury',
 }
 
 export const classEngravingKeys = Object.keys(Class);
@@ -318,6 +320,11 @@ export const EngravingValues = {
       'When the recovery effect ends, an additional recovery effect is activated, recovering 8% / 16% / 24% of your max HP.',
     img: '/engraving/Desperate Salvation.webp',
   },
+  Drizzle: {
+    desription:
+      "Sun Shower's Raindrop Meter consumption decreases by 50%. While Sun Shower is active, damage dealt by Weather skills increases by 7% / 15% / 30%.",
+    img: '/engraving/Drizzle.webp',
+  },
   "Empress's Grace": {
     desription: '4-stack Ruin damage +20% / 25% / 30%. When Ruin hits, recover 30% of consumed MP.',
     img: "/engraving/Empress's Grace.webp",
@@ -483,5 +490,10 @@ export const EngravingValues = {
     desription:
       'Natural recovery speed of Stamina Energy +300% / 450% / 600%. Stamina skill damage +35% / 50% / 65%. Shock Skill damage -30%.',
     img: '/engraving/Ultimate Skill: Taijutsu.webp',
+  },
+  'Wind Fury': {
+    desription:
+      'Gain Crit Rate equal to 7% / 15% / 30% of basic Move Speed bonus percentage. Gain Crit Damage equal to 22% / 45% / 90% of basic Atk Speed increase percentage. If Umbrella skill is used and then again within 3 seconds, recovers 12% of maximum Raindrop Meter. Sun Shower is enhanced and counts as an Umbrella skill. Sun Shower AoE radius is reduced and Raindrop Meter consumption +50%. Foes no longer receive the Atk Power Reduction effect, but Atk Speed and Move Speed Increase of allies +12%.',
+    img: '/engraving/Wind Fury.webp',
   },
 };

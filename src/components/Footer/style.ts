@@ -4,7 +4,7 @@ export const Footer = styled.div`
   display: flex;
   justify-content: center;
   padding: 20px;
-  font-size: 18px;
+  font-size: 1rem;
 
   div {
     border: 1px solid #dddddd;

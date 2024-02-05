@@ -51,7 +51,7 @@ export const EInput = styled.div<Props>`
 
     div > select {
       line-height: 20px;
-      font-size: 16px;
+      font-size: 1rem;
       padding: 10px;
       color: #dddddd;
       background: ${({ value }) =>

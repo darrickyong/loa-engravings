@@ -8,7 +8,7 @@ export const AccInput = styled.div`
   width: 100%;
 
   .title {
-    font-size: 20px;
+    font-size: 1.5rem;
     margin-bottom: 25px;
     color: #00ffff;
   }
