@@ -4,6 +4,7 @@ import React from 'react';
 import * as S from './style';
 import { Tooltip } from 'react-tooltip';
 import { Accessory } from 'src/algo/main';
+import { baseUrl } from 'src/components/constants';
 interface Props {
   accessory: Accessory
   index: string;
@@ -15,8 +16,8 @@ const AResult = ({ accessory, index }: Props) => {
     eng2: { name: eng2Name, value: eng2Value },
   } = accessory;
 
-  const imgSrc = eng1Value + eng2Value > 8 ? 'AccAncient.png' : 'AccRelic.png';
-  const bgImg = eng1Value + eng2Value > 8 ? 'BGAncient.png' : 'BGRelic.png';
+  const imgSrc = eng1Value + eng2Value > 8 ? `${baseUrl}/AccAncient.png` : `${baseUrl}/AccRelic.png`;
+  const bgImg = eng1Value + eng2Value > 8 ? `${baseUrl}/BGAncient.png` : `${baseUrl}/BGRelic.png`;
 
   const tooltip = (
     <Tooltip

@@ -3,6 +3,7 @@ import React from 'react';
 // Style
 import * as S from './style';
 import { allEngravingKeys } from 'src/algo/engravings';
+import { baseUrl } from 'src/components/constants';
 
 interface AInputOnChange {
   eng: 'eng1' | 'eng2';
@@ -60,7 +61,7 @@ const AInput = ({ accessory, index, onChange, disabled = false }: Props) => {
       <div className="title">Accessory {index + 1}</div>
       <div className="eng1">
         <div className="engrImg" onClick={() => resetNode('eng1')}>
-          {eng1Name ? <img src={`/engravings/${eng1Name}.webp`} alt=""></img> : null}
+          {eng1Name ? <img src={`${baseUrl}/engravings/${eng1Name}.webp`} alt=""></img> : null}
         </div>
         <div className="engrSelect">
           <select
@@ -89,7 +90,7 @@ const AInput = ({ accessory, index, onChange, disabled = false }: Props) => {
 
       <div className="eng2">
         <div className="engrImg" onClick={() => resetNode('eng2')}>
-          {eng2Name ? <img src={`/engravings/${eng2Name}.webp`} alt=""></img> : null}
+          {eng2Name ? <img src={`${baseUrl}/engravings/${eng2Name}.webp`} alt=""></img> : null}
         </div>
         <div className="engrSelect">
           <select

@@ -1,3 +1,4 @@
+import { baseUrl } from 'src/components/constants';
 import styled from 'styled-components';
 
 interface Props {
@@ -28,7 +29,7 @@ export const AInput = styled.div<Props>`
     margin: 10px;
 
     .engrImg {
-      background: url(/engravings/EngravingFrame.png) no-repeat center;
+      background: url(${baseUrl}/engravings/EngravingFrame.png) no-repeat center;
       width: 140px;
       height: 120px;
       display: flex;

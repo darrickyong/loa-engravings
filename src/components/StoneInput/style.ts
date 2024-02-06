@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { baseUrl } from '../constants';
 
 export const StoneInput = styled.div`
   display: flex;
@@ -8,28 +9,24 @@ export const StoneInput = styled.div`
   min-width: 775px;
   width: 100%;
 
-  .title {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    color: #00ffff;
-  }
-
   .stoneBG {
-    background: url(/engravings/StoneBackground.jpeg) no-repeat center;
+    background: url(${baseUrl}/engravings/StoneBackground.jpeg) no-repeat;
     display: flex;
     flex-direction: column;
-    height: 100%;
     width: 775px;
+    height: 845px;
+    margin: 1rem;
 
     .top {
-      height: 40%;
+      height: 36%;
     }
 
     .bot {
-      height: 60%;
-      padding: 20px 50px;
+      height: 55%;
+      padding: 0 3rem;
       display: flex;
       flex-direction: column;
+      gap: 2rem;
       justify-content: space-evenly;
     }
   }

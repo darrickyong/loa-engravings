@@ -89,8 +89,9 @@ video {
   vertical-align: baseline;
   text-align: center;
   text-decoration: none;
-  color: #DDDDDD;
+  color: #dddddd;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -112,6 +113,10 @@ body {
 input,
 textarea {
   font-family: 'Arial', sans-serif;
+}
+
+h2 {
+  font-size: 1.5em;
 }
 
 ol,

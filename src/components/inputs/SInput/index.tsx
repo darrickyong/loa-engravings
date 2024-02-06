@@ -3,6 +3,7 @@ import React from 'react';
 // Style
 import * as S from './style';
 import { combatEngravingKeys } from 'src/algo/engravings';
+import { baseUrl } from 'src/components/constants';
 
 interface Props {
   name: null | string;
@@ -32,7 +33,7 @@ const SInput = ({ name, value, onChange }: Props) => {
   return (
     <S.SInput>
       <div className="engrImg" onClick={resetNode}>
-        {name ? <img src={`/engravings/${name}.webp`} alt=""></img> : null}
+        {name ? <img src={`${baseUrl}/engravings/${name}.webp`} alt=""></img> : null}
       </div>
       <div className="engrCol">
         <div className="title">
@@ -51,7 +52,7 @@ const SInput = ({ name, value, onChange }: Props) => {
               <img
                 key={idx + 1}
                 onClick={() => onNodeChange(idx)}
-                src={value > idx ? '/engravings/StoneNodeFull.jpg' : '/engravings/StoneNodeEmpty.jpg'}
+                src={value > idx ? `${baseUrl}/engravings/StoneNodeFull.jpg` : `${baseUrl}/engravings/StoneNodeEmpty.jpg`}
                 alt=""
               />
             );

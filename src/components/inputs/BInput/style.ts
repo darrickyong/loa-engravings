@@ -1,3 +1,4 @@
+import { baseUrl } from 'src/components/constants';
 import styled from 'styled-components';
 
 export const BInput = styled.div`
@@ -8,7 +9,7 @@ export const BInput = styled.div`
   width: 100%;
 
   .engrImg {
-    background: url(/engravings/EngravingFrame.png) no-repeat center;
+    background: url(${baseUrl}/engravings/EngravingFrame.png) no-repeat center;
     width: 140px;
     height: 120px;
     display: flex;

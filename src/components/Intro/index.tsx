@@ -6,7 +6,6 @@ import * as S from './style';
 const Intro = () => {
   return (
     <S.Intro>
-      Intro
       {/* {[...Array(20)].map((_v, idx1) => {
         return [...Array(256)].map((_v, idx2) => {
           return (
@@ -17,6 +16,8 @@ const Intro = () => {
           );
         })
       })} */}
+      
+      <h2>Intro</h2>
     </S.Intro>
   );
 };

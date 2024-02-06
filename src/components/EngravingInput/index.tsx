@@ -30,7 +30,7 @@ const EngravingInput = ({ standardEngravings, setStandardEngravings }: Props) =>
 
   return (
     <S.EngravingInput>
-      <div className="title">Select the engravings that you want...</div>
+      <h2>Select the engravings that you want...</h2>
       {standardEngravings.map((engraving, index) => {
         const { name, value } = engraving;
         return (

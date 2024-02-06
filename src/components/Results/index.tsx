@@ -38,12 +38,12 @@ const Results = ({ standardEngravings, stoneEngravings, bookEngravings, accEngra
   const renderRes = () => {
     if (!accessories) return null;
     return (
-      <S.ResultsList>
+      <S.List>
         <h2>Results</h2>
         {accessories.map((accessoryList, idx) => {
           return <AResultList key={idx} accessoryList={accessoryList} tooltipIdx={idx.toString()} />;
         })}
-      </S.ResultsList>
+      </S.List>
     );
   };
 

@@ -3,6 +3,7 @@ import { allEngravingKeys } from 'src/algo/engravings';
 
 // Style
 import * as S from './style';
+import { baseUrl } from 'src/components/constants';
 
 interface Props {
   name: null | string;
@@ -32,7 +33,7 @@ const EInput = ({ name, value, onChange }: Props) => {
   return (
     <S.EInput value={value}>
       <div className="engrImg" onClick={resetNode}>
-        {name ? <img src={`/engravings/${name}.webp`} alt=""></img> : null}
+        {name ? <img src={`${baseUrl}/engravings/${name}.webp`} alt=""></img> : null}
       </div>
       <div className="engrCol">
         <div>
@@ -54,7 +55,11 @@ const EInput = ({ name, value, onChange }: Props) => {
                   <img
                     key={idx + 1}
                     onClick={() => onNodeChange(idx)}
-                    src={amt > idx ? '/engravings/EngravingNodeFull.png' : '/engravings/EngravingNodeEmpty.png'}
+                    src={
+                      amt > idx
+                        ? `${baseUrl}/engravings/EngravingNodeFull.png`
+                        : `${baseUrl}/engravings/EngravingNodeEmpty.png`
+                    }
                     alt=""
                   />
                 );
@@ -71,7 +76,11 @@ const EInput = ({ name, value, onChange }: Props) => {
                   <img
                     key={idx + 1}
                     onClick={() => onNodeChange(idx + 5)}
-                    src={amt > idx ? '/engravings/EngravingNodeFull.png' : '/engravings/EngravingNodeEmpty.png'}
+                    src={
+                      amt > idx
+                        ? `${baseUrl}/engravings/EngravingNodeFull.png`
+                        : `${baseUrl}/engravings/EngravingNodeEmpty.png`
+                    }
                     alt=""
                   />
                 );
@@ -88,7 +97,11 @@ const EInput = ({ name, value, onChange }: Props) => {
                   <img
                     key={idx + 1}
                     onClick={() => onNodeChange(idx + 10)}
-                    src={amt > idx ? '/engravings/EngravingNodeFull.png' : '/engravings/EngravingNodeEmpty.png'}
+                    src={
+                      amt > idx
+                        ? `${baseUrl}/engravings/EngravingNodeFull.png`
+                        : `${baseUrl}/engravings/EngravingNodeEmpty.png`
+                    }
                     alt=""
                   />
                 );

@@ -1,3 +1,4 @@
+import { baseUrl } from 'src/components/constants';
 import styled from 'styled-components';
 
 interface Props {
@@ -22,10 +23,15 @@ const calculateTitleBackground = (level: number, value: number) => {
 export const EInput = styled.div<Props>`
   display: flex;
   align-items: center;
-  width: 80%;
+  width: 100%;
+  padding: 20px;
 
   .engrImg {
-    background: url(/engravings/EngravingFrame.png) no-repeat center;
+    &:hover {
+      cursor: pointer;
+    }
+
+    background: url(${baseUrl}/engravings/EngravingFrame.png) no-repeat center;
     width: 140px;
     height: 120px;
     display: flex;

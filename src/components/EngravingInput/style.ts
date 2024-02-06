@@ -7,10 +7,4 @@ export const EngravingInput = styled.div`
   height: calc(100vh - 76px - 96px);
   min-width: 900px;
   width: 100%;
-
-  .title {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    color: #00ffff;
-  }
 `;

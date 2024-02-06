@@ -30,7 +30,7 @@ const BookInput = ({ bookEngravings, setBookEngravings }: Props) => {
 
   return (
     <S.BookInput>
-      <div className="title">Select the books that you have equipped...</div>
+      <h2>Select the books that you have equipped...</h2>
       <div className="books">
         {bookEngravings.map((engraving, index) => {
           const { name, value } = engraving;

@@ -7,12 +7,6 @@ export const BookInput = styled.div`
   height: calc(100vh - 76px - 96px);
   width: 100%;
 
-  .title {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    color: #00ffff;
-  }
-
   .books {
     width: 50%;
     display: flex;
