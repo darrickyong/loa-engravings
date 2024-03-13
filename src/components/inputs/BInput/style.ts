@@ -1,4 +1,3 @@
-import { baseUrl } from 'src/components/constants';
 import styled from 'styled-components';
 
 export const BInput = styled.div`
@@ -8,25 +7,10 @@ export const BInput = styled.div`
   align-items: center;
   width: 100%;
 
-  .engrImg {
-    background: url(${baseUrl}/engravings/EngravingFrame.png) no-repeat center;
-    width: 140px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-    }
-  }
-
   .engrCol {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     padding: 5px;
     height: 120px;
     width: 100%;
@@ -36,7 +20,7 @@ export const BInput = styled.div`
       align-items: center;
       background: linear-gradient(0.25turn, #172333, #202938, #131d29);
       height: 30%;
-      border-radius: 2px;
+      border-radius: 5px;
 
       .counter {
         display: flex;
@@ -45,22 +29,11 @@ export const BInput = styled.div`
       }
     }
 
-    div > select {
-      line-height: 20px;
-      font-size: 1rem;
-      padding: 10px;
-      color: #dddddd;
-    }
-
-    select:hover {
-      cursor: pointer;
-    }
-
     .level {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      border-radius: 2px;
+      border-radius: 5px;
       padding-top: 5px;
 
       .selected {

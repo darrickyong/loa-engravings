@@ -4,6 +4,8 @@ import React from 'react';
 import * as S from './style';
 import { allEngravingKeys } from 'src/algo/engravings';
 import { baseUrl } from 'src/components/constants';
+import EngravingSelector from 'src/components/common/EngravingSelector';
+import EngravingImage from 'src/components/common/EngravingImage';
 
 interface Props {
   name: null | string;
@@ -32,15 +34,10 @@ const BInput = ({ name, value, onChange }: Props) => {
 
   return (
     <S.BInput>
-      <div className="engrImg" onClick={resetNode}>{name ? <img src={`${baseUrl}/engravings/${name}.webp`} alt=""></img> : null}</div>
+      <EngravingImage name={name} onClick={resetNode} />
       <div className="engrCol">
         <div className="title">
-          <select onChange={onSelectChange} value={name ? name : 'Select Engraving...'}>
-            <option disabled>Select Engraving...</option>
-            {options.map((option, idx) => (
-              <option key={idx}>{option}</option>
-            ))}
-          </select>
+          <EngravingSelector name={name} onChange={onSelectChange} options={options} />
           {value ? <div className="counter">{`x${value}`}</div> : null}
         </div>
         <div className="level">
