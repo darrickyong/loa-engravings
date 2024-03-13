@@ -1,4 +1,3 @@
-import { baseUrl } from 'src/components/constants';
 import styled from 'styled-components';
 
 interface Props {
@@ -24,42 +23,14 @@ export const EInput = styled.div<Props>`
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 20px;
-
-  .engrImg {
-    &:hover {
-      cursor: pointer;
-    }
-
-    background: url(${baseUrl}/engravings/EngravingFrame.png) no-repeat center;
-    width: 140px;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-    }
-  }
 
   .engrCol {
     display: flex;
     flex-direction: column;
     padding: 5px;
     width: 100%;
-
-    select:hover {
-      cursor: pointer;
-    }
-
-    div > select {
-      line-height: 20px;
-      font-size: 1rem;
-      padding: 10px;
-      color: #dddddd;
+    
+    select {
       background: ${({ value }) =>
         value < 15
           ? 'linear-gradient(0deg, rgb(72, 89, 136), transparent)'
@@ -71,6 +42,7 @@ export const EInput = styled.div<Props>`
       justify-content: space-evenly;
       background: black;
       padding: 5px;
+      border-radius: 0 0 5px 5px;
 
       .level ~ .level {
         margin-left: 5px;
@@ -78,6 +50,10 @@ export const EInput = styled.div<Props>`
 
       .level {
         width: 100%;
+
+        &:hover{
+          cursor: pointer;
+        }
 
         .levelTitle1,
         .levelTitle2,

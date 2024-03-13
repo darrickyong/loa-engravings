@@ -1,9 +1,11 @@
 import React from 'react';
-import { allEngravingKeys } from 'src/algo/engravings';
 
 // Style
 import * as S from './style';
 import { baseUrl } from 'src/components/constants';
+import EngravingImage from 'src/components/common/EngravingImage';
+import EngravingSelector from 'src/components/common/EngravingSelector';
+import { allEngravingKeys } from 'src/algo/engravings';
 
 interface Props {
   name: null | string;
@@ -32,18 +34,9 @@ const EInput = ({ name, value, onChange }: Props) => {
 
   return (
     <S.EInput value={value}>
-      <div className="engrImg" onClick={resetNode}>
-        {name ? <img src={`${baseUrl}/engravings/${name}.webp`} alt=""></img> : null}
-      </div>
+      <EngravingImage name={name} onClick={resetNode} />
       <div className="engrCol">
-        <div>
-          <select onChange={onSelectChange} value={name ? name : 'Select Engraving...'}>
-            <option disabled>Select Engraving...</option>
-            {options.map((option, idx) => (
-              <option key={idx}>{option}</option>
-            ))}
-          </select>
-        </div>
+        <EngravingSelector name={name} onChange={onSelectChange} options={options} />
         <div className="levels">
           <div className="level" onClick={() => onNodeChange(4)}>
             <div className="levelTitle1">Level 1</div>

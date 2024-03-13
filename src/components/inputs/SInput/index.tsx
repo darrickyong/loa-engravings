@@ -4,6 +4,8 @@ import React from 'react';
 import * as S from './style';
 import { combatEngravingKeys } from 'src/algo/engravings';
 import { baseUrl } from 'src/components/constants';
+import EngravingImage from 'src/components/common/EngravingImage';
+import EngravingSelector from 'src/components/common/EngravingSelector';
 
 interface Props {
   name: null | string;
@@ -32,17 +34,10 @@ const SInput = ({ name, value, onChange }: Props) => {
 
   return (
     <S.SInput>
-      <div className="engrImg" onClick={resetNode}>
-        {name ? <img src={`${baseUrl}/engravings/${name}.webp`} alt=""></img> : null}
-      </div>
+      <EngravingImage name={name} onClick={resetNode} />
       <div className="engrCol">
         <div className="title">
-          <select onChange={onSelectChange} value={name ? name : 'Select Engraving...'}>
-            <option disabled>Select Engraving...</option>
-            {options.map((option, idx) => (
-              <option key={idx}>{option}</option>
-            ))}
-          </select>
+          <EngravingSelector name={name} onChange={onSelectChange} options={options} />
           {value ? <div className="counter">{`x${value}`}</div> : null}
         </div>
         <div className="level">
@@ -52,7 +47,9 @@ const SInput = ({ name, value, onChange }: Props) => {
               <img
                 key={idx + 1}
                 onClick={() => onNodeChange(idx)}
-                src={value > idx ? `${baseUrl}/engravings/StoneNodeFull.jpg` : `${baseUrl}/engravings/StoneNodeEmpty.jpg`}
+                src={
+                  value > idx ? `${baseUrl}/engravings/StoneNodeFull.jpg` : `${baseUrl}/engravings/StoneNodeEmpty.jpg`
+                }
                 alt=""
               />
             );

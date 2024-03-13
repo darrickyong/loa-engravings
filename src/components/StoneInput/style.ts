@@ -15,7 +15,6 @@ export const StoneInput = styled.div`
     flex-direction: column;
     width: 775px;
     height: 845px;
-    margin: 1rem;
 
     .top {
       height: 36%;

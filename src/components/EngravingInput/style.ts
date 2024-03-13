@@ -6,5 +6,4 @@ export const EngravingInput = styled.div`
   align-items: center;
   height: calc(100vh - 76px - 96px);
   min-width: 900px;
-  width: 100%;
 `;
