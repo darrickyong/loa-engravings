@@ -3,7 +3,8 @@ import React from 'react';
 // Style
 import * as S from './style';
 import { allEngravingKeys } from 'src/algo/engravings';
-import { baseUrl } from 'src/components/constants';
+import EngravingImage from 'src/components/common/EngravingImage';
+import EngravingSelector from 'src/components/common/EngravingSelector';
 
 interface AInputOnChange {
   eng: 'eng1' | 'eng2';
@@ -59,63 +60,56 @@ const AInput = ({ accessory, index, onChange, disabled = false }: Props) => {
   return (
     <S.AInput disabled={disabled}>
       <div className="title">Accessory {index + 1}</div>
+
+      
+
       <div className="eng1">
-        <div className="engrImg" onClick={() => resetNode('eng1')}>
-          {eng1Name ? <img src={`${baseUrl}/engravings/${eng1Name}.webp`} alt=""></img> : null}
-        </div>
+        <EngravingImage name={eng1Name} onClick={() => resetNode('eng1')} scale="0.5" />
         <div className="engrSelect">
-          <select
+          <EngravingSelector
             className="selectEngr"
             onChange={(e) => onNameChange(e, 'eng1', eng1Value)}
-            onMouseDown={onMouseDown}
-            value={eng1Name ? eng1Name : 'Select Engraving...'}
-          >
-            <option disabled>Select Engraving...</option>
-            {options.map((option, idx) => (
-              <option key={idx}>{option}</option>
-            ))}
-          </select>
+            name={eng1Name}
+            options={options}
+          />
           <select
+            className="selectQty"
             onChange={(e) => onNodeChange(e, 'eng1', eng1Name)}
             onMouseDown={onMouseDown}
-            value={eng1Value ? eng1Value : 'Select Node Amount...'}
+            value={eng1Value ? eng1Value : 'Qty'}
           >
-            <option disabled>Select Node Amount...</option>
+            <option disabled>Qty</option>
             {primaryValueOptions.map((option, idx) => (
-              <option key={idx} value={option}>{`Node + ${option}`}</option>
+              <option key={idx} value={option}>{`+ ${option}`}</option>
             ))}
           </select>
         </div>
       </div>
 
       <div className="eng2">
-        <div className="engrImg" onClick={() => resetNode('eng2')}>
-          {eng2Name ? <img src={`${baseUrl}/engravings/${eng2Name}.webp`} alt=""></img> : null}
-        </div>
+        <EngravingImage name={eng2Name} onClick={() => resetNode('eng2')} scale="0.5" />
         <div className="engrSelect">
-          <select
+          <EngravingSelector
             className="selectEngr"
             onChange={(e) => onNameChange(e, 'eng2', eng2Value)}
-            onMouseDown={onMouseDown}
-            value={eng2Name ? eng2Name : 'Select Engraving'}
-          >
-            <option disabled>Select Engraving</option>
-            {options.map((option, idx) => (
-              <option key={idx}>{option}</option>
-            ))}
-          </select>
+            name={eng2Name}
+            options={options}
+          />
+
           <select
+            className="selectQty"
             onChange={(e) => onNodeChange(e, 'eng2', eng2Name)}
             onMouseDown={onMouseDown}
-            value={eng2Value ? eng2Value : 'Select Node Amount'}
+            value={eng2Value ? eng2Value : 'Qty'}
           >
-            <option disabled>Select Node Amount</option>
+            <option disabled>Qty</option>
             {secondaryValueOptions.map((option, idx) => (
-              <option key={idx} value={option}>{`Node + ${option}`}</option>
+              <option key={idx} value={option}>{`+ ${option}`}</option>
             ))}
           </select>
         </div>
       </div>
+
     </S.AInput>
   );
 };

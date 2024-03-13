@@ -9,8 +9,6 @@ export const AccInput = styled.div`
 
   .title {
     font-size: 1.5rem;
-    margin-bottom: 25px;
-    color: #00ffff;
   }
 
   .useAncients {
@@ -29,7 +27,5 @@ export const AccInput = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 25px 50px;
-    /* overflow: scroll; */
   }
 `;
