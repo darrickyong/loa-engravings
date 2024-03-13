@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/loa-engravings/static/js/main.a7be2f15.js",
+    "main.js": "/loa-engravings/static/js/main.b70b972d.js",
     "index.html": "/loa-engravings/index.html",
-    "main.a7be2f15.js.map": "/loa-engravings/static/js/main.a7be2f15.js.map"
+    "main.b70b972d.js.map": "/loa-engravings/static/js/main.b70b972d.js.map"
   },
   "entrypoints": [
-    "static/js/main.a7be2f15.js"
+    "static/js/main.b70b972d.js"
   ]
 }
