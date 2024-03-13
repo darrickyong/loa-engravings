@@ -1,4 +1,4 @@
-export const DO = [
+export const HOWTOUSE = [
   'This tool is intended to be used an aid to determine the accessories you may need to purchase.',
   'Output minimums are accessories with 5/3.',
   'Requirements: a minimum of 75 nodes selected, a faceted ability stone, 2 engraving books, a minimum of one 5/3 accessory,',

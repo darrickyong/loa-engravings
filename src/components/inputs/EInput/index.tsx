@@ -45,7 +45,7 @@ const EInput = ({ name, value, onChange }: Props) => {
           </select>
         </div>
         <div className="levels">
-          <div className="level">
+          <div className="level" onClick={() => onNodeChange(4)}>
             <div className="levelTitle1">Level 1</div>
             <div className="levelNode">
               {[...Array(5)].map((_v, idx) => {
@@ -54,7 +54,6 @@ const EInput = ({ name, value, onChange }: Props) => {
                 return (
                   <img
                     key={idx + 1}
-                    onClick={() => onNodeChange(idx)}
                     src={
                       amt > idx
                         ? `${baseUrl}/engravings/EngravingNodeFull.png`
@@ -66,16 +65,15 @@ const EInput = ({ name, value, onChange }: Props) => {
               })}
             </div>
           </div>
-          <div className="level">
+          <div className="level" onClick={() => onNodeChange(9)}>
             <div className="levelTitle2">Level 2</div>
             <div className="levelNode">
               {[...Array(5)].map((_v, idx) => {
-                // idx 0 - 4
+                // idx 5 - 9
                 const amt = value >= idx + 5 + 1 ? 10 : idx;
                 return (
                   <img
                     key={idx + 1}
-                    onClick={() => onNodeChange(idx + 5)}
                     src={
                       amt > idx
                         ? `${baseUrl}/engravings/EngravingNodeFull.png`
@@ -87,16 +85,15 @@ const EInput = ({ name, value, onChange }: Props) => {
               })}
             </div>
           </div>
-          <div className="level">
+          <div className="level" onClick={() => onNodeChange(14)}>
             <div className="levelTitle3">Level 3</div>
             <div className="levelNode">
               {[...Array(5)].map((_v, idx) => {
-                // idx 0 - 4
+                // idx 10 - 14
                 const amt = value >= idx + 10 + 1 ? 15 : idx;
                 return (
                   <img
                     key={idx + 1}
-                    onClick={() => onNodeChange(idx + 10)}
                     src={
                       amt > idx
                         ? `${baseUrl}/engravings/EngravingNodeFull.png`

@@ -2,6 +2,7 @@ import React from 'react';
 
 // Style
 import * as S from './style';
+import { HOWTOUSE } from '../constants';
 
 const Intro = () => {
   return (
@@ -16,8 +17,13 @@ const Intro = () => {
           );
         })
       })} */}
-      
+
       <h2>Intro</h2>
+      <ul>
+        {HOWTOUSE.map((str) => (
+          <li key={str}>{str}</li>
+        ))}
+      </ul>
     </S.Intro>
   );
 };

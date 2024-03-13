@@ -30,6 +30,6 @@ export const AccInput = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     padding: 25px 50px;
-    overflow: scroll;
+    /* overflow: scroll; */
   }
 `;

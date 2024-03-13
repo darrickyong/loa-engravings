@@ -6,7 +6,7 @@ export const Results = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  overflow: scroll;
+  /* overflow: scroll; */
 `;
 
 export const List = styled.div`
