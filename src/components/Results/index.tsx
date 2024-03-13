@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { MagnifyingGlass } from 'react-loader-spinner';
 import { Accessory, EngravingBook, RequiredNodes, Stone, engravingAlgo } from 'src/algo/main';
+import AResultList from '../inputs/AResultList';
+import LoadingGlass from '../LoadingGlass';
 
 // Style
 import * as S from './style';
-import AResultList from '../inputs/AResultList';
 
 interface Props {
   standardEngravings: RequiredNodes;
@@ -15,59 +15,59 @@ interface Props {
 }
 const Results = ({ standardEngravings, stoneEngravings, bookEngravings, accEngravings, useAncients }: Props) => {
   const [calculating, setCalculating] = useState(true);
+  const [message, setMessage] = useState('');
   const [accessories, setAccessories] = useState<null | Accessory[][]>(null);
 
   useEffect(() => {
     if (!accessories) {
-      const accessories = engravingAlgo({
+      const { accFound, message, data } = engravingAlgo({
         books: bookEngravings,
         requiredNodes: standardEngravings,
         stone: stoneEngravings,
         existingAcc: accEngravings,
         useAncients,
-      }) as Accessory[][];
-      
-      console.log(accessories);
+      });
+
+      console.log(accFound, message, data);
       setTimeout(() => {
-        setAccessories(accessories);
+        setAccessories(data);
+        setMessage(message);
         setCalculating(false);
       }, 1000);
     }
   }, [accessories, setAccessories, standardEngravings, bookEngravings, stoneEngravings, accEngravings, useAncients]);
 
-  const renderRes = () => {
-    if (!accessories) return null;
+  const renderList = () => {
     return (
-      <S.List>
-        <h2>Results</h2>
-        {accessories.map((accessoryList, idx) => {
+      <>
+        {accessories!.map((accessoryList, idx) => {
           return <AResultList key={idx} accessoryList={accessoryList} tooltipIdx={idx.toString()} />;
         })}
-      </S.List>
+      </>
     );
+  };
+
+  const renderError = () => {
+    return (
+      <>
+        <h3>No Results Found</h3>
+        {message}
+      </>
+    );
+  };
+
+  const renderRes = () => {
+    return accessories!.length ? renderList() : renderError();
   };
 
   return (
     <S.Results>
       <h2>Existing Accessories</h2>
       <AResultList accessoryList={accEngravings} tooltipIdx="existing" />
-
-      {calculating ? (
-        <MagnifyingGlass
-          visible
-          height="500"
-          width="500"
-          ariaLabel="MagnifyingGlass-loading"
-          wrapperStyle={{}}
-          wrapperClass="MagnifyingGlass-wrapper"
-          // glassColor="#0a1526"
-          // color="#f5efdc"
-          glassColor="#f5efdc"
-          color="#00ffff"
-        />
-      ) : (
-        renderRes()
-      )}
+      <S.List>
+        <h2>Results</h2>
+        {!accessories || calculating ? <LoadingGlass /> : renderRes()}
+      </S.List>
     </S.Results>
   );
 };

@@ -5,6 +5,7 @@ import * as S from './style';
 import { Tooltip } from 'react-tooltip';
 import { Accessory } from 'src/algo/main';
 import { baseUrl } from 'src/components/constants';
+// import AInput from '../AInput';
 interface Props {
   accessory: Accessory
   index: string;

@@ -67,6 +67,7 @@ export const WARDANCER = {
       { name: Combat['Keen Blunt Weapon'], value: 15 },
       { name: Combat['Ambush Master'], value: 15 },
       { name: Combat['Cursed Doll'], value: 15 },
+      { name: null, value: 0 },
     ],
   },
   books: [
@@ -74,8 +75,8 @@ export const WARDANCER = {
     { name: Combat['Grudge'], value: 12 },
   ],
   // stone: {
-    // eng1: { name: Combat['Keen Blunt Weapon'], value: 9 },
-    // eng2: { name: Combat['Adrenaline'], value: 7 },
+  // eng1: { name: Combat['Keen Blunt Weapon'], value: 9 },
+  // eng2: { name: Combat['Adrenaline'], value: 7 },
   //   eng2: { name: Combat['Ambush Master'], value: 7 },
   // },
   stone: {

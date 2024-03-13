@@ -9,6 +9,11 @@ export const DONOT = [
   '4/3 accessories and below are not considered in this tool. As such, a situation where a 6/3 and 4/3 satifies the node requirements will not be presented. It will show up as a 5/3 and 5/3.',
 ];
 
+export const ACCESSORIES_FOUND = 'Accessories have been found.';
+export const NEEDS_ONE_ACCESSORY = 'Needs at least one accessory to start calculating.';
+export const ABOVE_LEG_ONLY = 'You only need legendary accessories for this.';
+export const TOO_FEW_NODES = 'Requires more than ancient accessories';
+
 const env = process.env['NODE_ENV'];
 export const baseUrl = env === 'development' ? 'loa-engravings' : '.';
 

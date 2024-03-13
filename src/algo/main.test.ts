@@ -206,8 +206,8 @@ describe('Random examples should calculate properly', () => {
       existingAcc: FAILED.acc,
       useAncients: true,
     });
-    expect(caseOne.length).toBe(5);
-    // expect(caseOne.length).toBe(12); // TODO
+    expect(caseOne.data.length).toBe(5);
+    // expect(caseOne.data.length).toBe(12); // TODO
   });
 
   test('A 5x3 requirement should calculate', () => {
@@ -218,7 +218,7 @@ describe('Random examples should calculate properly', () => {
       existingAcc: LOWSTATS.acc,
       useAncients: false,
     });
-    expect(caseTwo.length).toBe(3);
+    expect(caseTwo.data.length).toBe(3);
   });
 
   test('A 5x3 CONTROL requirement should calculate', () => {
@@ -229,7 +229,7 @@ describe('Random examples should calculate properly', () => {
       existingAcc: CONTROL.acc,
       useAncients: true,
     });
-    expect(control.length).toBe(6);
+    expect(control.data.length).toBe(6);
   });
   test('A 5x3 CONTROLTWO requirement should calculate', () => {
     const control = engravingAlgo({
@@ -239,7 +239,7 @@ describe('Random examples should calculate properly', () => {
       existingAcc: CONTROL.acc,
       useAncients: true,
     });
-    expect(control.length).toBe(3);
+    expect(control.data.length).toBe(3);
   });
 });
 
@@ -253,7 +253,7 @@ describe('Testing specific need for ancients', () => {
       useAncients: false,
     });
 
-    expect(doesNotUseAncients.length).toBe(0);
+    expect(doesNotUseAncients.data.length).toBe(0);
   });
 
   test('A 5x3 that requires ancients', () => {
@@ -264,7 +264,7 @@ describe('Testing specific need for ancients', () => {
       existingAcc: WARDANCER.acc,
       useAncients: true,
     });
-    expect(usesAncients.length).toBe(5);
+    expect(usesAncients.data.length).toBe(5);
   });
 
   test('A 5x3+2 requirement that has 2 ancient pieces and a 9/7 rock should calculate', () => {
@@ -275,7 +275,7 @@ describe('Testing specific need for ancients', () => {
       existingAcc: HIGHSTATS.acc,
       useAncients: true,
     });
-    expect(fiveByThreePlusTwo.length).toBe(3);
+    expect(fiveByThreePlusTwo.data.length).toBe(3);
   });
 });
 
@@ -288,8 +288,8 @@ describe('Testing for four accessories', () => {
       existingAcc: NEEDSFOURACCESSORIES.acc,
       useAncients: true,
     });
-    expect(needsFourAccessories.length).toBe(9);
-    // expect(needsFourAccessories.length).toBe(22); // TODO
+    expect(needsFourAccessories.data.length).toBe(9);
+    // expect(needsFourAccessories.data.length).toBe(22); // TODO
   });
 
   test('A 5x3+2 requirement that has 2 ancient pieces and a 9/7 rock should calculate', () => {
@@ -300,7 +300,7 @@ describe('Testing for four accessories', () => {
       existingAcc: HIGHSTATS.accOne,
       useAncients: true,
     });
-    expect(fiveByThreePlusTwo.length).toBe(3);
+    expect(fiveByThreePlusTwo.data.length).toBe(3);
   });
 });
 
@@ -313,7 +313,7 @@ describe('Testing for cases with no results', () => {
       existingAcc: FAILED.acc,
       useAncients: false,
     });
-    expect(failedCase.length).toBe(0);
+    expect(failedCase.data.length).toBe(0);
   });
 
   test('Second case with no expected results', () => {
@@ -324,7 +324,7 @@ describe('Testing for cases with no results', () => {
       existingAcc: FAILED.acc,
       useAncients: false,
     });
-    expect(failedCase.length).toBe(0);
+    expect(failedCase.data.length).toBe(0);
   });
 
   test('Third case with no expected results', () => {
@@ -335,7 +335,7 @@ describe('Testing for cases with no results', () => {
       existingAcc: FAILED.acc,
       useAncients: true,
     });
-    expect(failedCase.length).toBe(0);
+    expect(failedCase.data.length).toBe(0);
   });
 });
 

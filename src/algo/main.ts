@@ -1,3 +1,4 @@
+import { ABOVE_LEG_ONLY, ACCESSORIES_FOUND, NEEDS_ONE_ACCESSORY, TOO_FEW_NODES } from 'src/components/constants';
 import { Class, Combat } from './engravings';
 // import { WARDANCER } from './testAccessories';
 import { cloneDeep, isEqual } from 'lodash';
@@ -134,7 +135,7 @@ const createListofAccessories = (
 
 const findEngravingAndDecrement = (
   remainingNodes: RequiredNodes,
-  engraving: { name: Combat | Class; value: number },
+  engraving: { name: Combat | Class; value: number }
   // allowNegative restricts to accessories with exact amount of nodes (fewer results)
 ) => {
   const index = remainingNodes.nodes.findIndex((e) => e.name === engraving.name);
@@ -151,17 +152,13 @@ const findEngravingAndDecrement = (
   // return remainingNodes;
 };
 
-const isEngravingEnough = (
-  total: number,
-  nodes: RequiredEngravings[],
-  listOfAccessories: Accessory[],
-) => {
+const isEngravingEnough = (total: number, nodes: RequiredEngravings[], listOfAccessories: Accessory[]) => {
   const res = { total, nodes };
   listOfAccessories.forEach((acc) => {
     findEngravingAndDecrement(res, acc.eng1);
     findEngravingAndDecrement(res, acc.eng2);
   });
-  if (nodes.length === 0 && (res.total === 0)) {
+  if (nodes.length === 0 && res.total === 0) {
     return true;
   }
   return false;
@@ -205,15 +202,15 @@ const calculateAccessories = ({ total, nodes, remainingAcc, useAncients }: Calcu
 
   // TODO: remainingAcc max is 3, otherwise options are too massive.  Can optimize algo
   if (remainingAcc > 4) {
-    throw new Error('Needs at least one accessory to start calculating.');
+    return { accFound: false, message: NEEDS_ONE_ACCESSORY, data: [] };
   }
 
   if (total / remainingAcc < 8) {
-    throw new Error('You only need legendary accessories for this.');
+    return { accFound: false, message: ABOVE_LEG_ONLY, data: [] };
   }
 
   if (total / remainingAcc > 9) {
-    throw new Error('Requires more than ancient accessories.');
+    return { accFound: false, message: TOO_FEW_NODES, data: [] };
   }
 
   if (remainingAcc > 0) {
@@ -267,26 +264,22 @@ const calculateAccessories = ({ total, nodes, remainingAcc, useAncients }: Calcu
             }
           } else {
             const iterationOfAcc = [listOfAccessories[i], listOfAccessories[j]];
-            if (
-              isEngravingEnough(total, cloneDeep(nodes), iterationOfAcc) &&
-              !isSetOfAccKnown(res, iterationOfAcc)
-            ) {
+            if (isEngravingEnough(total, cloneDeep(nodes), iterationOfAcc) && !isSetOfAccKnown(res, iterationOfAcc)) {
               res.push(iterationOfAcc);
             }
           }
         }
       } else {
         const iterationOfAcc = [listOfAccessories[i]];
-        if (
-          isEngravingEnough(total, cloneDeep(nodes), iterationOfAcc) &&
-          !isSetOfAccKnown(res, iterationOfAcc)
-        )
+        if (isEngravingEnough(total, cloneDeep(nodes), iterationOfAcc) && !isSetOfAccKnown(res, iterationOfAcc))
           res.push(iterationOfAcc);
       }
     }
-  } else throw new Error('No accessories needed.');
+  } else {
+    return { accFound: false, message: NEEDS_ONE_ACCESSORY, data: [] };
+  }
 
-  return res;
+  return { accFound: true, message: ACCESSORIES_FOUND, data: res };
 };
 
 export const engravingAlgo = ({ books, existingAcc, requiredNodes, stone, useAncients }: EngravingReq) => {
