@@ -6,8 +6,9 @@ export const EngravingSelector = styled.select`
   padding: 10px;
   color: #dddddd;
   border-radius: 5px 5px 0 0;
-  font-family: "Georgia", "serif";
+  font-family: 'Georgia', 'serif';
   letter-spacing: 1px;
+
 
   &:hover {
     cursor: pointer;

@@ -159,6 +159,11 @@ select {
   line-height: inherit;
 }
 
+option {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
 *,
 *::before,
 *::after {
