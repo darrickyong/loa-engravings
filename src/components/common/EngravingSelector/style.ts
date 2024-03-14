@@ -12,5 +12,6 @@ export const EngravingSelector = styled.select`
 
   &:hover {
     cursor: pointer;
+    opacity: 0.75;
   }
 `;

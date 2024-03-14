@@ -36,7 +36,7 @@ const SInput = ({ name, value, onChange }: Props) => {
     <S.SInput>
       <EngravingImage name={name} onClick={resetNode} />
       <div className="engrCol">
-        <div className="title">
+        <div className="engrSelect">
           <EngravingSelector name={name} onChange={onSelectChange} options={options} />
           {value ? <div className="counter">{`x${value}`}</div> : null}
         </div>

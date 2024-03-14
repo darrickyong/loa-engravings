@@ -1,32 +1,42 @@
 import styled from 'styled-components';
 
-interface Props {
-  disabled: boolean;
-}
+export const AInput = styled.div`
+  /* scale: 0.8; */
 
-export const AInput = styled.div<Props>`
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid #ffffff;
   border-radius: 5px;
+  padding: 1em;
 
-  .eng1,
-  .eng2 {
+  .engravings {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 1em;
 
-    .engrSelect {
+    .eng1,
+    .eng2 {
       display: flex;
-      /* flex-direction: column; */
-      justify-content: center;
+      align-items: center;
+      min-width: 350px;
 
-      select {
-        color: #f3f3dd;
-      }
+      .engrSelect {
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
 
-      .selectQty {
-        width: 40px;
+        select {
+          color: #f3f3dd;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+
+        .selectQty {
+          width: 40px;
+        }
       }
     }
   }

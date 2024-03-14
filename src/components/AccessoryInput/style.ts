@@ -5,11 +5,8 @@ export const AccInput = styled.div`
   flex-direction: column;
   align-items: center;
   height: calc(100vh - 76px - 96px);
-  width: 100%;
-
-  .title {
-    font-size: 1.5rem;
-  }
+  min-width: 900px;
+  gap: 2em;
 
   .useAncients {
     input:hover {
@@ -22,10 +19,13 @@ export const AccInput = styled.div`
       padding-left: 5px;
     }
   }
-  
+
   .accessories {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    max-width: 900px;
   }
 `;

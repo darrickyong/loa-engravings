@@ -1,4 +1,10 @@
-import { ABOVE_LEG_ONLY, ACCESSORIES_FOUND, NEEDS_ONE_ACCESSORY, TOO_FEW_NODES } from 'src/components/constants';
+import {
+  ABOVE_LEG_ONLY,
+  ACCESSORIES_FOUND,
+  NEEDS_ONE_ACCESSORY,
+  NO_ACCESSORIES_FOUND,
+  TOO_FEW_NODES,
+} from 'src/components/constants';
 import { Class, Combat } from './engravings';
 // import { WARDANCER } from './testAccessories';
 import { cloneDeep, isEqual } from 'lodash';
@@ -278,8 +284,8 @@ const calculateAccessories = ({ total, nodes, remainingAcc, useAncients }: Calcu
   } else {
     return { accFound: false, message: NEEDS_ONE_ACCESSORY, data: [] };
   }
-
-  return { accFound: true, message: ACCESSORIES_FOUND, data: res };
+  if (res.length) return { accFound: true, message: ACCESSORIES_FOUND, data: res };
+  return { accFound: false, message: NO_ACCESSORIES_FOUND, data: [] };
 };
 
 export const engravingAlgo = ({ books, existingAcc, requiredNodes, stone, useAncients }: EngravingReq) => {

@@ -16,6 +16,7 @@ const getBackground = (scale: string) => {
 export const EngravingImage = styled.div<Props>`
   &:hover {
     cursor: pointer;
+    opacity: 0.25;
   }
 
   background: ${({ scale }) => getBackground(scale)};

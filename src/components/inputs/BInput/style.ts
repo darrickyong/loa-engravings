@@ -15,7 +15,7 @@ export const BInput = styled.div`
     height: 120px;
     width: 100%;
 
-    .title {
+    .engrSelect {
       display: flex;
       align-items: center;
       background: linear-gradient(0.25turn, #172333, #202938, #131d29);

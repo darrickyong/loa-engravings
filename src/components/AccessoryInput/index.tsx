@@ -48,7 +48,8 @@ const AccessoryInput = ({ accEngravings, setAccEngravings, setUseAncients, useAn
 
   return (
     <S.AccInput>
-      <div className="title">Select the accessories that you already have purchased...</div>
+      <h2>Select the accessories that you already have purchased...</h2>
+
       <div className="accessories">
         {accEngravings.map((accessory, index) => {
           return (
@@ -61,6 +62,7 @@ const AccessoryInput = ({ accEngravings, setAccEngravings, setUseAncients, useAn
           );
         })}
       </div>
+
       <div className="useAncients">
         <input type="checkbox" onChange={flipUseAncients} checked={useAncients} />
         <label onClick={flipUseAncients}>Calculate suggestions using ancient accessories?</label>

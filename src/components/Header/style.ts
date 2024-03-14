@@ -4,6 +4,6 @@ export const Header = styled.div`
   display: flex;
   justify-content: center;
   padding: 3rem 0;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
 `;

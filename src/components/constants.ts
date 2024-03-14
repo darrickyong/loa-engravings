@@ -10,6 +10,7 @@ export const DONOT = [
 ];
 
 export const ACCESSORIES_FOUND = 'Accessories have been found.';
+export const NO_ACCESSORIES_FOUND = 'No combination has been found';
 export const NEEDS_ONE_ACCESSORY = 'Needs at least one accessory to start calculating.';
 export const ABOVE_LEG_ONLY = 'You only need legendary accessories for this.';
 export const TOO_FEW_NODES = 'Requires more than ancient accessories';

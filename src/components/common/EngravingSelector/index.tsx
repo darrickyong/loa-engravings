@@ -5,22 +5,17 @@ import * as S from './style';
 
 interface EngravingSelectorProps {
   className?: string;
-  disabled?: boolean;
   name: null | string;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   options: string[];
 }
 
-const EngravingSelector = ({ className, disabled, name, onChange, options }: EngravingSelectorProps) => {
-  const onMouseDown = (e: React.MouseEvent<HTMLSelectElement>) => {
-    if (disabled) e.preventDefault();
-  };
+const EngravingSelector = ({ className, name, onChange, options }: EngravingSelectorProps) => {
 
   return (
     <S.EngravingSelector
       className={className}
       onChange={onChange}
-      onMouseDown={onMouseDown}
       value={name ? name : 'Select Engraving...'}
     >
       <option disabled>Select Engraving...</option>
