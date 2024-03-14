@@ -5,11 +5,6 @@ export const BookInput = styled.div`
   flex-direction: column;
   align-items: center;
   height: calc(100vh - 76px - 96px);
-  width: 100%;
+  min-width: 600px;
 
-  .books {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-  }
 `;

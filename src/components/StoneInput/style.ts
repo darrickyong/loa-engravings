@@ -6,8 +6,7 @@ export const StoneInput = styled.div`
   flex-direction: column;
   align-items: center;
   height: calc(100vh - 76px - 96px);
-  min-width: 775px;
-  width: 100%;
+  min-width: 900px;
 
   .stoneBG {
     background: url(${baseUrl}/engravings/StoneBackground.jpeg) no-repeat;

@@ -31,19 +31,17 @@ const BookInput = ({ bookEngravings, setBookEngravings }: Props) => {
   return (
     <S.BookInput>
       <h2>Select the books that you have equipped...</h2>
-      <div className="books">
-        {bookEngravings.map((engraving, index) => {
-          const { name, value } = engraving;
-          return (
-            <BInput
-              key={index}
-              name={name}
-              onChange={(name, value) => engravingOnChange({ name, value, index })}
-              value={value}
-            />
-          );
-        })}
-      </div>
+      {bookEngravings.map((engraving, index) => {
+        const { name, value } = engraving;
+        return (
+          <BInput
+            key={index}
+            name={name}
+            onChange={(name, value) => engravingOnChange({ name, value, index })}
+            value={value}
+          />
+        );
+      })}
     </S.BookInput>
   );
 };
