@@ -1,3 +1,5 @@
+import { Combat } from "src/algo/engravings";
+
 export const HOWTOUSE = [
   'This tool is intended to be used an aid to determine the accessories you may need to purchase.',
   'Output minimums are accessories with 5/3.',
@@ -24,6 +26,11 @@ export const TOO_FEW_NODES = 'Requires more than ancient accessories';
 const env = process.env['NODE_ENV'];
 export const baseUrl = env === 'development' ? 'loa-engravings' : '.';
 
+const mediaQuery = window.matchMedia('(max-width: 960px)');
+const userAgent = navigator.userAgent.toLowerCase();
+const isMobileUserAgent = /iphone|ipad|ipod|android|windows phone/g.test(userAgent);
+export const isMobile = mediaQuery.matches || isMobileUserAgent;
+
 export const DEFAULTS = {
   standardEngravings: [
     { name: null, value: 0 },
@@ -43,8 +50,8 @@ export const DEFAULTS = {
   ],
   accEngravings: [
     {
-      eng1: { name: null, value: 0 },
-      eng2: { name: null, value: 0 },
+      eng1: { name: Combat['Keen Blunt Weapon'], value: 5 },
+      eng2: { name: Combat['Grudge'], value: 3 },
     },
     {
       eng1: { name: null, value: 0 },

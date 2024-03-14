@@ -65,7 +65,7 @@ export const WARDANCER = {
       { name: Class['Esoteric Skill Enhancement'], value: 15 },
       { name: Combat['Grudge'], value: 15 },
       { name: Combat['Keen Blunt Weapon'], value: 15 },
-      { name: Combat['Ambush Master'], value: 15 },
+      { name: Combat['Raid Captain'], value: 15 },
       { name: Combat['Cursed Doll'], value: 15 },
       { name: Combat['Adrenaline'], value: 5 },
     ],

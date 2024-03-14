@@ -48,12 +48,7 @@ const Results = ({ standardEngravings, stoneEngravings, bookEngravings, accEngra
   };
 
   const renderError = () => {
-    return (
-      <>
-        <h3>No Results Found</h3>
-        {message}
-      </>
-    );
+    return <h3>{`No Results Found: ${message}`}</h3>;
   };
 
   const renderRes = () => {
@@ -63,11 +58,11 @@ const Results = ({ standardEngravings, stoneEngravings, bookEngravings, accEngra
   return (
     <S.Results>
       <div className="existing">
-        <h2>Existing Accessories</h2>
+        <h2>Owned</h2>
         <AResultList accessoryList={accEngravings} existing />
       </div>
       <S.List>
-        <h2>{`Results Found: ${accessories!.length}`}</h2>
+        <h2>{`Results ${accessories && accessories.length ? `Found: ${accessories!.length}` : ''}`}</h2>
         {!accessories || calculating ? <LoadingGlass /> : renderRes()}
       </S.List>
     </S.Results>

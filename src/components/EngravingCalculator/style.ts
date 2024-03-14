@@ -7,4 +7,5 @@ export const EngravingCalculator = styled.div`
   align-items: center;
   background-color: #151515;
   height: 100vh;
+  overflow: auto;
 `;
