@@ -4,6 +4,7 @@ import React from 'react';
 import * as S from './style';
 import BInput from '../inputs/BInput';
 import { engravingOnChangeProps } from 'types/types';
+import { BOOK_HEADING } from '../constants';
 
 interface Props {
   bookEngravings: {
@@ -30,7 +31,7 @@ const BookInput = ({ bookEngravings, setBookEngravings }: Props) => {
 
   return (
     <S.BookInput>
-      <h2>Select the books that you have equipped...</h2>
+      <h2>{BOOK_HEADING}</h2>
       {bookEngravings.map((engraving, index) => {
         const { name, value } = engraving;
         return (

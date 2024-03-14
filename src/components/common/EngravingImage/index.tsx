@@ -5,7 +5,7 @@ import { baseUrl } from 'src/components/constants';
 import * as S from './style';
 
 interface EngravingImageProps {
-  onClick: () => void;
+  onClick?: () => void;
   name: null | string;
   scale?: string;
 }

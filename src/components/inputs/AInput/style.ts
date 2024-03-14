@@ -33,6 +33,7 @@ export const AInput = styled.div`
         }
 
         .selectQty {
+          font-family: 'Georgia', 'serif';
           width: 40px;
         }
       }

@@ -56,8 +56,8 @@ export const DEMO_REQUIRED_NODES = {
 
 export const WARDANCER = {
   nodes: {
-    total: 75,
-    // total: 80,
+    // total: 75,
+    total: 80,
     // total: 85,
     nodes: [
       // { name: Combat['Adrenaline'], value: 5 },
@@ -67,11 +67,11 @@ export const WARDANCER = {
       { name: Combat['Keen Blunt Weapon'], value: 15 },
       { name: Combat['Ambush Master'], value: 15 },
       { name: Combat['Cursed Doll'], value: 15 },
-      { name: null, value: 0 },
+      { name: Combat['Adrenaline'], value: 5 },
     ],
   },
   books: [
-    { name: Class['Esoteric Skill Enhancement'], value: 9 },
+    { name: Class['Esoteric Skill Enhancement'], value: 12 },
     { name: Combat['Grudge'], value: 12 },
   ],
   // stone: {
@@ -81,7 +81,7 @@ export const WARDANCER = {
   // },
   stone: {
     eng1: { name: Combat['Keen Blunt Weapon'], value: 7 },
-    eng2: { name: Combat['Cursed Doll'], value: 7 },
+    eng2: { name: Combat['Raid Captain'], value: 7 },
   },
   acc: [
     {

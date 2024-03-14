@@ -1,14 +1,14 @@
 import React from 'react';
+import { Accessory } from 'src/algo/main';
 
 // Style
 import * as S from './style';
-import { Tooltip } from 'react-tooltip';
-import { Accessory } from 'src/algo/main';
-import { baseUrl } from 'src/components/constants';
-// import AInput from '../AInput';
+import AccessoryImage from 'src/components/common/AccessoryImage';
+import EngravingImage from 'src/components/common/EngravingImage';
+
 interface Props {
-  accessory: Accessory
-  index: string;
+  accessory: Accessory;
+  index: number;
 }
 
 const AResult = ({ accessory, index }: Props) => {
@@ -17,24 +17,28 @@ const AResult = ({ accessory, index }: Props) => {
     eng2: { name: eng2Name, value: eng2Value },
   } = accessory;
 
-  const imgSrc = eng1Value + eng2Value > 8 ? `${baseUrl}/AccAncient.png` : `${baseUrl}/AccRelic.png`;
-  const bgImg = eng1Value + eng2Value > 8 ? `${baseUrl}/BGAncient.png` : `${baseUrl}/BGRelic.png`;
-
-  const tooltip = (
-    <Tooltip
-      anchorSelect={`.anchor-${index}`}
-      id={index}
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}
-    >
-      <div>{`${eng1Name} +${eng1Value}`}</div> <div>{`${eng2Name} +${eng2Value}`}</div>
-    </Tooltip>
-  );
-
   return (
-    <S.AResultTooltip data-for={index} className={`anchor-${index}`} $bgImg={bgImg}>
-      {tooltip}
-      <div className="img-container">
-        <img src={imgSrc} alt="" />
+    <S.AResultTooltip>
+      <h3>Accessory {index + 1}</h3>
+
+      <AccessoryImage value={eng1Value + eng2Value} />
+
+      <div className="engravings">
+        <div className="eng1">
+          <EngravingImage name={eng1Name} scale="0.5" />
+          <div className="engr">
+            <div>{`${eng1Name}`}</div>
+            <div>{`+${eng1Value}`}</div>
+          </div>
+        </div>
+
+        <div className="eng2">
+          <EngravingImage name={eng2Name} scale="0.5" />
+          <div className="engr">
+            <div>{`${eng2Name}`}</div>
+            <div>{`+${eng2Value}`}</div>
+          </div>
+        </div>
       </div>
     </S.AResultTooltip>
   );

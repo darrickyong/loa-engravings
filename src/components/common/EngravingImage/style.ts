@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 interface Props {
   scale: string;
+  onClick: undefined | (() => void);
 }
 
 const divSize = 130;
@@ -15,14 +16,14 @@ const getBackground = (scale: string) => {
 
 export const EngravingImage = styled.div<Props>`
   &:hover {
-    cursor: pointer;
-    opacity: 0.25;
+    cursor: ${({ onClick }) => (onClick ? 'pointer' : 'auto')};
+    opacity: ${({ onClick }) => (onClick ? 0.25 : 1)};
   }
 
   background: ${({ scale }) => getBackground(scale)};
   background-size: contain;
-  width: ${({ scale }) => (scale === 'none' ? `${divSize}px` : "none")};
-  height: ${({ scale }) => (scale === 'none' ? `${divSize}px` : "none")};
+  width: ${({ scale }) => (scale === 'none' ? `${divSize}px` : 'none')};
+  height: ${({ scale }) => (scale === 'none' ? `${divSize}px` : 'none')};
   display: flex;
   align-items: center;
   justify-content: center;

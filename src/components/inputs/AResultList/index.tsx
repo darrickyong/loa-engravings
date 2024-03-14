@@ -3,18 +3,19 @@ import { Accessory } from 'src/algo/main';
 import AResult from '../AResult';
 
 // Styles
-import * as S from "./style";
+import * as S from './style';
 
 interface Props {
   accessoryList: Accessory[];
-  tooltipIdx: string;
+  existing: boolean;
 }
 
-const AResultList = ({ accessoryList, tooltipIdx }: Props) => {
+const AResultList = ({ accessoryList, existing }: Props) => {
+  const indexStart = existing ? 0 : 5 - accessoryList.length;
   return (
     <S.AResultList>
       {accessoryList.map((accessory, index) => {
-        return <AResult key={index} accessory={accessory} index={`${tooltipIdx}${index}`} />;
+        return <AResult key={index} accessory={accessory} index={indexStart + index} />;
       })}
     </S.AResultList>
   );

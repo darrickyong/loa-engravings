@@ -164,7 +164,10 @@ const isEngravingEnough = (total: number, nodes: RequiredEngravings[], listOfAcc
     findEngravingAndDecrement(res, acc.eng1);
     findEngravingAndDecrement(res, acc.eng2);
   });
-  if (nodes.length === 0 && res.total === 0) {
+  // if (nodes.length === 0 && res.total === 0) {
+  //   return true;
+  // }
+  if (nodes.length === 0 && res.total <= 0) {
     return true;
   }
   return false;

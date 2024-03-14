@@ -4,6 +4,7 @@ import React from 'react';
 import * as S from './style';
 import AInput from '../inputs/AInput';
 import { accOnChangeProps } from 'types/types';
+import { ACCESSORY_HEADING, INCLUDE_ANCIENTS } from '../constants';
 
 interface Props {
   accEngravings: {
@@ -48,7 +49,7 @@ const AccessoryInput = ({ accEngravings, setAccEngravings, setUseAncients, useAn
 
   return (
     <S.AccInput>
-      <h2>Select the accessories that you already have purchased...</h2>
+      <h2>{ACCESSORY_HEADING}</h2>
 
       <div className="accessories">
         {accEngravings.map((accessory, index) => {
@@ -65,7 +66,7 @@ const AccessoryInput = ({ accEngravings, setAccEngravings, setUseAncients, useAn
 
       <div className="useAncients">
         <input type="checkbox" onChange={flipUseAncients} checked={useAncients} />
-        <label onClick={flipUseAncients}>Calculate suggestions using ancient accessories?</label>
+        <label onClick={flipUseAncients}>{INCLUDE_ANCIENTS}</label>
       </div>
     </S.AccInput>
   );

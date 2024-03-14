@@ -39,11 +39,11 @@ const Results = ({ standardEngravings, stoneEngravings, bookEngravings, accEngra
 
   const renderList = () => {
     return (
-      <>
+      <div className="results-list">
         {accessories!.map((accessoryList, idx) => {
-          return <AResultList key={idx} accessoryList={accessoryList} tooltipIdx={idx.toString()} />;
+          return <AResultList key={idx} accessoryList={accessoryList} existing={false} />;
         })}
-      </>
+      </div>
     );
   };
 
@@ -62,10 +62,12 @@ const Results = ({ standardEngravings, stoneEngravings, bookEngravings, accEngra
 
   return (
     <S.Results>
-      <h2>Existing Accessories</h2>
-      <AResultList accessoryList={accEngravings} tooltipIdx="existing" />
+      <div className="existing">
+        <h2>Existing Accessories</h2>
+        <AResultList accessoryList={accEngravings} existing />
+      </div>
       <S.List>
-        <h2>Results</h2>
+        <h2>{`Results Found: ${accessories!.length}`}</h2>
         {!accessories || calculating ? <LoadingGlass /> : renderRes()}
       </S.List>
     </S.Results>

@@ -4,6 +4,7 @@ import SInput from '../inputs/SInput';
 // Style
 import * as S from './style';
 import { engravingOnChangeProps } from 'types/types';
+import { STONE_HEADING } from '../constants';
 
 interface Props {
   stoneEngravings: {
@@ -30,7 +31,7 @@ const StoneInput = ({ stoneEngravings, setStoneEngravings }: Props) => {
 
   return (
     <S.StoneInput>
-      <h2>Select the stone that you have equipped...</h2>
+      <h2>{STONE_HEADING}</h2>
       <div className="stoneBG">
         <div className="top"></div>
         <div className="bot">

@@ -5,11 +5,23 @@ export const Results = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
-  /* overflow: scroll; */
+  overflow-y: auto;
+  gap: 2em;
+
+  .existing {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
 `;
 
 export const List = styled.div`
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+
+  .results-list {
+    margin: 1.5em 0;
+    overflow-y: auto;
+  }
 `;

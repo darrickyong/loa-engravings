@@ -9,6 +9,12 @@ export const DONOT = [
   '4/3 accessories and below are not considered in this tool. As such, a situation where a 6/3 and 4/3 satifies the node requirements will not be presented. It will show up as a 5/3 and 5/3.',
 ];
 
+export const ENGRAVING_HEADING = 'Select the engravings that you want';
+export const STONE_HEADING = 'Select the stone that you have equipped';
+export const BOOK_HEADING = 'Select the books that you have equipped';
+export const ACCESSORY_HEADING = 'Select the accessories that you already have purchased (min: 1)';
+export const INCLUDE_ANCIENTS = 'Include ancient accessories in results';
+
 export const ACCESSORIES_FOUND = 'Accessories have been found.';
 export const NO_ACCESSORIES_FOUND = 'No combination has been found';
 export const NEEDS_ONE_ACCESSORY = 'Needs at least one accessory to start calculating.';

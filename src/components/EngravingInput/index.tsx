@@ -4,6 +4,7 @@ import EInput from '../inputs/EInput';
 // Style
 import * as S from './style';
 import { engravingOnChangeProps } from 'types/types';
+import { ENGRAVING_HEADING } from '../constants';
 
 interface Props {
   standardEngravings: {
@@ -30,7 +31,7 @@ const EngravingInput = ({ standardEngravings, setStandardEngravings }: Props) =>
 
   return (
     <S.EngravingInput>
-      <h2>Select the engravings that you want...</h2>
+      <h2>{ENGRAVING_HEADING}</h2>
       {standardEngravings.map((engraving, index) => {
         const { name, value } = engraving;
         return (

@@ -8,7 +8,7 @@ import Results from '../Results';
 import StoneInput from '../StoneInput';
 import React, { useState } from 'react';
 import { Accessory, EngravingBook, RequiredEngravings, RequiredNodes, Stone } from 'src/algo/main';
-// import { WARDANCER } from 'src/algo/testAccessories';
+import { WARDANCER } from 'src/algo/testAccessories';
 import { DEFAULTS } from '../constants';
 
 // Style
@@ -18,24 +18,24 @@ const minAccessories = 1;
 
 const EngravingCalculator = () => {
   const [step, setStep] = useState(0);
-  const [useAncients, setUseAncients] = useState(false);
+  const [useAncients, setUseAncients] = useState(true);
 
   // EngravingsInput
   const [standardEngravings, setStandardEngravings] = useState<{ name: null | string; value: number }[]>(
-    // WARDANCER.nodes.nodes
-    DEFAULTS.standardEngravings
+    WARDANCER.nodes.nodes
+    // DEFAULTS.standardEngravings
   );
 
   // Stone Input
   const [stoneEngravings, setStoneEngravings] = useState<{ name: null | string; value: number }[]>(
-    // Object.values(WARDANCER.stone)
-    DEFAULTS.stoneEngravings
+    Object.values(WARDANCER.stone)
+    // DEFAULTS.stoneEngravings
   );
 
   // Book Input
   const [bookEngravings, setBookEngravings] = useState<{ name: null | string; value: number }[]>(
-    // WARDANCER.books
-    DEFAULTS.bookEngravings
+    WARDANCER.books
+    // DEFAULTS.bookEngravings
   );
 
   // Accessory Input
