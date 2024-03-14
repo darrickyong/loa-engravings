@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const AInput = styled.div`
-  /* scale: 0.8; */
-
   display: flex;
   flex-direction: column;
   align-items: center;
