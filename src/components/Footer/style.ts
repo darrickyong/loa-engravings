@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Footer = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 2em;
   margin-bottom: 5rem;
   font-size: 1rem;
 
