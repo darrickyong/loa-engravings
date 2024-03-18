@@ -4,7 +4,7 @@ export const BookInput = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: calc(100vh - 76px - 96px);
+  flex-grow: 1;
   min-width: 720px;
-  max-width: 100%;
+  overflow-y: auto;
 `;

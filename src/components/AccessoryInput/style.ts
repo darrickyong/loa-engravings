@@ -6,9 +6,12 @@ export const AccInput = styled.div`
   align-items: center;
   height: calc(100vh - 76px - 96px);
   min-width: 900px;
-  gap: 2em;
+  /* gap: 2em; */
+  overflow-y: auto;
 
   .useAncients {
+    margin-bottom: 1em;
+
     input:hover {
       cursor: pointer;
     }

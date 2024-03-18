@@ -16,13 +16,14 @@ export const AInput = styled.div`
     .eng1,
     .eng2 {
       display: flex;
+      justify-content: center;
       align-items: center;
       min-width: 350px;
+      min-height: 45px;
 
       .engrSelect {
         display: flex;
-        /* flex-direction: column; */
-        justify-content: center;
+        justify-content: space-between;
 
         select {
           color: #f3f3dd;

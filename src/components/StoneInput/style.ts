@@ -4,27 +4,27 @@ import { baseUrl } from '../constants';
 export const StoneInput = styled.div`
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   align-items: center;
-  height: calc(100vh - 76px - 96px);
-  min-width: 900px;
+  overflow-y: auto;
 
   .stoneBG {
     background: url(${baseUrl}/engravings/StoneBackground.jpeg) no-repeat;
+    background-size: contain;
     display: flex;
     flex-direction: column;
-    width: 775px;
-    height: 845px;
+    min-width: 845px;
+    min-height: 775px;
 
     .top {
-      height: 36%;
+      height: 39%;
     }
 
     .bot {
-      height: 55%;
+      height: 61%;
       padding: 0 3rem;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
       justify-content: space-evenly;
     }
   }
